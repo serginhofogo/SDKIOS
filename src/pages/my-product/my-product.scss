@@ -1,0 +1,238 @@
+page-my-product {
+  .cover-img {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    z-index:1;
+    margin: 0;
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .slides {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 1;
+
+  }
+  .swiper-pagination-bullets {
+    top: 200px;
+    top: 200px;
+
+    .swiper-pagination-bullet-active {
+      background:#FFF;
+    }
+  }
+  .card {
+    margin: 170px 25px 0;
+    width: auto;
+    background:#f5f5f5;
+    box-shadow:  0 15px 20px rgba(0,0,0,.2);
+    border-radius: 6px;
+    position: relative;
+    z-index:2;
+    overflow: visible;
+    margin-bottom: 30px;
+
+    ion-card-header {
+      background:#FFF;
+
+      overflow: visible;
+      white-space: normal;
+
+      .info {
+        padding-right: 145px;
+        position:relative;
+        margin-bottom: 25px;
+
+        strong {
+          display: block;
+          font-size:14px;
+          font-weight: 400;
+          color:#393939;
+          font-family: 'montserrat-light';
+          margin-bottom: 6px;
+        }
+        span {
+          display: block;
+          font-size: 12px;
+          color:#727272;
+        }
+        .ad-options {
+          position: absolute;
+          right: 00px;
+          top: 50%;
+          margin-top:- 18px;
+        }
+        .ads-icon {
+          display: inline-block;
+          width:21px;
+          height: 16px;
+          background: url(../assets/images/ads-icons-red.png) no-repeat;
+          background-size:21px auto;
+          margin-right: 5px;
+          vertical-align: middle;
+
+          &.view-icon {
+            background-position: 0 0;
+          }
+          &.fav-icon {
+            background-position: 0 -16px;
+          }
+        }
+        .button {
+          height: auto;
+          padding: 5px 0;
+          margin-left: 20px;
+        }
+      }
+
+
+      h1 {
+        font-family: 'montserrat-light';
+        font-size: 24px;
+        font-weight: 400;
+        margin:0;
+        color:#393939;
+      }
+      h3 {
+        font-size:12px;
+        font-weight: 400;
+        margin: 0 0 30px;
+        color: #727272;;
+      }
+      h2 {
+        font-family: 'montserrat-light';
+        font-size:18px;
+        font-weight:400;
+        color: #3f3f3f;
+        margin:0 0 10px;
+      }
+      .user-tn {
+        float:left;
+        width:80px;
+        height: 80px;
+        border-radius:80px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,.2);
+        margin:-30px 15px 20px 0;
+        border: solid 3px #FFF;
+      }
+      ion-badge {
+        background: none;
+        font-size:14px;
+        color:#ff3f47;
+        border-radius:6px;
+        border: solid 1px #ff3f47;
+        padding: 8px 35px;
+        font-weight: 400;
+      }
+      .button.comment-button {
+        float:right;
+        height: auto;
+        padding: 5px 10px;
+        color:#393939;
+
+        .comment-icon {
+          display: block;
+          width: 22px;
+          height: 19px;
+          margin: 0 auto;
+          background: url(../assets/images/comment-icon.png) no-repeat;
+          background-size: 22px auto;
+          margin-right: 6px;
+        }
+      }
+    }
+
+    h4 {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color:#727272;
+      font-size:12px;
+      margin: 0 0 22px;
+    }
+    p {
+      font-size:14px;
+      color:#393939;
+      line-height: 18px;
+      margin:0;
+      padding-left:20px;
+      letter-spacing:.5px;
+      position: relative;
+
+      &:before {
+        content: '';
+        width:3px;
+        height: 28px;
+        background:#ff3f47;
+        top:5px;
+        left:0;
+        display: block;
+        position: absolute;
+      }
+    }
+    ion-card-content,
+    footer{
+      padding: 35px 16px !important;
+    }
+    footer {
+      border-radius: 0 0 6px 6px;
+      background:#ececec;
+
+      .button {
+        float:right;
+        margin:0;
+        padding: 0;
+        height: auto;
+        font-size:14px;
+      }
+    }
+  }
+
+  .grid {
+    padding: 5px 10px 20px;
+
+    .col {
+      padding: 0 8px;
+    }
+
+    .button[icon-only] {
+      width: 45px;
+      height: 45px;
+      margin: 0 2px;
+
+      .icon {
+        display: block;
+        width:22px;
+        height: 22px;
+        background: url(../assets/images/edit-delete-icons.png) no-repeat;
+        background-size: 22px auto;
+        margin:11px auto;
+
+        &.edit-icon {
+          background-position: 0 0
+        }
+        &.delete-icon {
+          background-position: 0 -22px
+        }
+      }
+    }
+  }
+
+  .button-gradient {
+    height: 45px;
+    box-shadow: 0 5px 15px rgba(255,34,90,.3);
+    margin: 0;
+    font-size: 14px;
+    letter-spacing: .5px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+}

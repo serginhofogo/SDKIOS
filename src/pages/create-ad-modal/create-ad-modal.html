@@ -1,0 +1,67 @@
+<ion-header class="no-shadow">
+  <ion-toolbar color="light">
+    <ion-title>
+      Carrito de Compras
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button round class="button-gradient" (click)="dismiss()">
+        <ion-icon name="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Mis Herramientas: </ion-label>
+  </ion-item>
+
+  <ion-thumbnail class="cover">
+    <img src="assets/images/discover-img.jpg" />
+    <ion-badge>Cover</ion-badge>
+  </ion-thumbnail>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-3>
+        <ion-thumbnail class="ad-image selected">
+          <img src="assets/images/discover-img.jpg" />
+          <ion-badge>Cover</ion-badge>
+        </ion-thumbnail>
+      </ion-col>
+
+      <ion-col col-3>
+        <ion-thumbnail class="ad-image">
+          <img src="assets/images/discover-img.jpg" />
+        </ion-thumbnail>
+      </ion-col>
+
+      <ion-col col-3>
+        <button ion-button icon-only class="add-image-button">
+          <i class="add-image-icon"></i>
+        </button>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+  <ion-item>
+    <ion-label stacked>Title</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label stacked>Price</ion-label>
+    <ion-input type="number"></ion-input>
+  </ion-item>
+
+</ion-content>
+
+<ion-footer color="light">
+  <ion-toolbar>
+    <button class="button-gradient" ion-button round full (click)="dismiss(); addProduct()">
+      Continue
+    </button>
+  </ion-toolbar>
+</ion-footer>

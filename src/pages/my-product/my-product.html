@@ -1,0 +1,89 @@
+<ion-header class="bar-gradient">
+  <ion-navbar color="gradient">
+    <ion-title>Macbook Pro</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <i class="header-icon share-icon"></i>
+      </button>
+      <button ion-button icon-only>
+        <i class="header-icon fav-empty-icon"></i>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<div *ngIf="showSlideView">
+  <ion-slides pager>
+
+    <ion-slide>
+      <img src="assets/images/macbook-large.jpg" />
+    </ion-slide>
+
+    <ion-slide>
+      <img src="assets/images/macbook-large.jpg" />
+    </ion-slide>
+
+    <ion-slide>
+      <img src="assets/images/macbook-large.jpg" />
+    </ion-slide>
+
+  </ion-slides>
+</div>
+<ion-content>
+
+
+  <ion-card>
+    <ion-card-header>
+      <div class="info">
+        <strong>Your Ad is Active</strong>
+        <span>Posted 3 day ago</span>
+
+        <nav class="ad-options">
+          <button ion-button clear class="views">
+            <i class="ads-icon view-icon"></i> 234
+          </button>
+
+          <button ion-button clear class="favs">
+            <i class="ads-icon fav-icon"></i> 12
+          </button>
+        </nav>
+      </div>
+
+      <h2>Macbook Pro</h2>
+
+      <button ion-button clear class="comment-button">
+        <i class="comment-icon"></i> 3
+      </button>
+      <ion-badge>$ 556</ion-badge>
+    </ion-card-header>
+
+    <ion-card-content>
+      <h4>description</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidi dunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+    </ion-card-content>
+
+    <footer>
+      <h4>Location</h4>
+      <p>Palace Towers,<br/>
+        MG Road, Bangalore</p>
+    </footer>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-7>
+        <button ion-button full round class="button-gradient">Repost Ad</button>
+      </ion-col>
+      <ion-col col-5>
+        <button ion-button  round icon-only class="button-gradient">
+          <i class="icon edit-icon"></i>
+        </button>
+        <button ion-button round icon-only class="button-gradient">
+          <i class="icon delete-icon"></i>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

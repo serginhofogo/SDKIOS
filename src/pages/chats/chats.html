@@ -1,0 +1,72 @@
+<ion-header class="bar-gradient">
+    <ion-title>
+      Búsqueda
+    </ion-title>
+  <ion-segment [(ngModel)]="chat" mode="md" color="light">
+    <ion-segment-button value="buying" >
+      Por Nombre
+    </ion-segment-button>
+    <ion-segment-button value="selling">
+      Por Marca
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content>
+  <div [ngSwitch]="chat">
+    <ion-list *ngSwitchCase="'buying'">
+      <ion-item class="item-unread" (click)="openChat()">
+        <ion-thumbnail item-left>
+          <img src="assets/images/user-tn.jpg" />
+          <em class="online"></em>
+        </ion-thumbnail>
+        <ion-badge item-right>3</ion-badge>
+        <ion-badge item-right class="time">just now</ion-badge>
+
+        <h1>Jonathan Parle</h1>
+        <h2>Macbook Pro</h2>
+        <p>Hi John, I would like to buy your Macbook Pro</p>
+      </ion-item>
+
+      <ion-item (click)="openChatBg()">
+        <ion-thumbnail item-left>
+          <img src="assets/images/sue-chang.jpg" />
+          <em></em>
+        </ion-thumbnail>
+        <ion-badge item-right class="time">1 hour ago</ion-badge>
+
+        <h1>Sue Chang</h1>
+        <h2>Sun Glasses with 8MP HD Ca</h2>
+        <p>Alright I will be there to pick up.</p>
+      </ion-item>
+
+      <ion-item (click)="openChat()">
+        <ion-thumbnail item-left>
+          <img src="assets/images/angelica.jpg" />
+          <em></em>
+        </ion-thumbnail>
+        <ion-badge item-right class="time">yesterday</ion-badge>
+
+        <h1>Angelica Maths</h1>
+        <h2>Nikon Camera 4K</h2>
+        <p>I will send more pictures</p>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'selling'">
+
+
+      <ion-item (click)="openChat()">
+        <ion-thumbnail item-left>
+          <img src="assets/images/user-tn.jpg" />
+          <em></em>
+        </ion-thumbnail>
+        <ion-badge item-right class="time">yesterday</ion-badge>
+
+        <h1>Jonathan Parle</h1>
+        <h2>Macbook Pro</h2>
+        <p>Hi John, I would like to buy your Macbook Pro</p>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

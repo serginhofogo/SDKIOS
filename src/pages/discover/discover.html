@@ -1,0 +1,48 @@
+<ion-header class="bar-gradient">
+  <ion-navbar color="gradient">
+    <div></div>
+    <ion-item>
+        <ion-label> <h3>Seleccione:</h3></ion-label><br/>
+        <ion-select (ionChange)="changeCategory()" [(ngModel)]="category" name="category">
+            <ion-option *ngFor="let categories of categoriesList" value={{categories.code}}>
+            {{categories.name}}</ion-option>
+          </ion-select>
+    </ion-item> 
+    
+     
+    <ion-buttons end>
+      <button ion-button icon-only (click)="toggleSearch()">
+        <i class="header-icon search-icon"></i>
+      </button>
+      <button ion-button icon-only (click)="openFilter()">
+        <i class="header-icon filter-icon"></i>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-searchbar *ngIf="toggled"
+    [showCancelButton]="false"
+    (ionInput)="showResults($event)"
+    (ionCancel)="clearSearch($event)"
+    (ionClear)="clearSearch($event)">
+
+  </ion-searchbar>
+</ion-header>
+<ion-badge class="distance" color="light">within 3 km</ion-badge>
+<ion-content padding>
+  <div *ngIf="showSearchResults">
+    <ion-grid>
+      <ion-row>
+        <ion-col width-50>
+            <ion-card *ngFor="let item of items"   (click)="showProduct(item)">
+                <img src="{{myBaseURL}}{{item.productImage[0]}}" />          
+                <div class="card-title">{{item.name}}</div>
+                <div class="card-subtitle">{{item.shortDesc}}</div>
+                <div class="card-price">$ {{item.price}}</div>
+            </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+</ion-content>

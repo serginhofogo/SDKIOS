@@ -1,0 +1,244 @@
+<ion-header class="bar-gradient">
+  <ion-navbar color="gradient">
+    <ion-title>Carrito de Compras</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="toggleSearch()">
+        <i class="header-icon search-icon"></i>
+      </button>
+
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-searchbar
+    *ngIf="toggled"
+    [showCancelButton]="false"
+    (ionInput)="showResults($event)"
+    (ionCancel)="clearSearch($event)"
+    (ionClear)="clearSearch($event)">
+  </ion-searchbar>
+
+  <ion-segment [(ngModel)]="ads" mode="md" color="light">
+    <ion-segment-button value="selling">
+      Selling
+    </ion-segment-button>
+    <ion-segment-button value="sold" >
+      Sold
+    </ion-segment-button>
+    <ion-segment-button value="fav" >
+      Favourites
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="showSearchResults">
+    <div [ngSwitch]="ads">
+
+      <ion-grid  *ngSwitchCase="'selling'">
+        <ion-row>
+          <ion-col width-50>
+            <ion-card (click)="showProduct()">
+              <ion-card-header>
+                <img src="http://localhost:3000/uploads/2018-09-19T01:44:28.796Zele3.jpg" />
+                <button ion-button clear class="views">
+                  <i class="ads-icon view-icon"></i> 234
+                </button>
+
+                <button ion-button clear class="favs">
+                  <i class="ads-icon fav-icon"></i> 12
+                </button>
+              </ion-card-header>
+
+              <ion-card-content>
+                <button ion-button round item-right icon-only color="secondary">
+                  <ion-icon name="md-more"></ion-icon>
+                </button>
+                <h3>Macbook Pro</h3>
+                <h4>$ 556</h4>
+              </ion-card-content>
+            </ion-card>
+
+            <ion-card>
+              <ion-card-header>
+                <img src="http://localhost:3000/uploads/2018-09-19T01:38:03.925Zalinea.png" />
+                <button ion-button clear class="views">
+                  <i class="ads-icon view-icon"></i> 234
+                </button>
+
+                <button ion-button clear class="favs">
+                  <i class="ads-icon fav-icon"></i> 12
+                </button>
+              </ion-card-header>
+
+              <ion-card-content>
+                <button ion-button round item-right icon-only color="secondary">
+                  <ion-icon name="md-more"></ion-icon>
+                </button>
+                <h3>Kung Fu Panda 3 CD</h3>
+                <h4>$ 10</h4>
+              </ion-card-content>
+            </ion-card>
+            <ion-card>
+              <img src="http://localhost:3000/uploads/2018-09-19T01:42:34.669Zele2.jpg" />
+              <ion-card-content>
+                <h3>Macbook Pro</h3>
+                <h4>$ 556</h4>
+              </ion-card-content>
+            </ion-card>
+
+          </ion-col>
+
+          <ion-col width-50>
+            <ion-card (click)="showProduct()">
+              <ion-card-header>
+                <img src="http://localhost:3000/uploads/2018-09-19T01:47:46.369Zcompresor.jpg" />
+                <button ion-button clear class="views">
+                  <i class="ads-icon view-icon"></i> 234
+                </button>
+
+                <button ion-button clear class="favs">
+                  <i class="ads-icon fav-icon"></i> 12
+                </button>
+              </ion-card-header>
+
+              <ion-card-content>
+                <button ion-button round item-right icon-only color="secondary">
+                  <ion-icon name="md-more"></ion-icon>
+                </button>
+                <h3>Sun Glasses</h3>
+                <h4>$ 128</h4>
+              </ion-card-content>
+            </ion-card>
+
+            <ion-card>
+              <ion-card-header>
+                <img src="http://localhost:3000/uploads/2018-09-19T01:42:34.669Zele2.jpg" />
+                <button ion-button clear class="views">
+                  <i class="ads-icon view-icon"></i> 234
+                </button>
+
+                <button ion-button clear class="favs">
+                  <i class="ads-icon fav-icon"></i> 12
+                </button>
+              </ion-card-header>
+
+              <ion-card-content>
+                <button ion-button round item-right icon-only color="secondary">
+                  <ion-icon name="md-more"></ion-icon>
+                </button>
+                <h3>Nikon Camera 4K</h3>
+                <h4>$ 2050</h4>
+              </ion-card-content>
+            </ion-card>
+
+
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid  *ngSwitchCase="'sold'">
+        <ion-row>
+          <ion-col width-50>
+            <ion-card (click)="showProduct()">
+              <ion-card-header>
+                <img src="assets/images/discover-img.jpg" />
+                <button ion-button clear class="views">
+                  <i class="ads-icon view-icon"></i> 234
+                </button>
+
+                <button ion-button clear class="favs">
+                  <i class="ads-icon fav-icon"></i> 12
+                </button>
+              </ion-card-header>
+
+              <ion-card-content>
+                <button ion-button round item-right icon-only color="secondary">
+                  <ion-icon name="md-more"></ion-icon>
+                </button>
+                <h3>Macbook Pro</h3>
+                <h4>$ 556</h4>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+
+          <ion-col width-50>
+            <ion-card (click)="showProduct()">
+              <ion-card-header>
+                <img src="assets/images/discover-img2.jpg" />
+                <button ion-button clear class="views">
+                  <i class="ads-icon view-icon"></i> 234
+                </button>
+
+                <button ion-button clear class="favs">
+                  <i class="ads-icon fav-icon"></i> 12
+                </button>
+              </ion-card-header>
+
+              <ion-card-content>
+                <button ion-button round item-right icon-only color="secondary">
+                  <ion-icon name="md-more"></ion-icon>
+                </button>
+                <h3>Macbook Pro</h3>
+                <h4>$ 556</h4>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid  *ngSwitchCase="'fav'">
+        <ion-row>
+          <ion-col width-50>
+            <ion-card>
+              <ion-card-header>
+                <img src="assets/images/discover-img4.jpg" />
+                <button ion-button clear class="views">
+                  <i class="ads-icon view-icon"></i> 234
+                </button>
+
+                <button ion-button clear class="favs">
+                  <i class="ads-icon fav-icon"></i> 12
+                </button>
+              </ion-card-header>
+
+              <ion-card-content>
+                <button ion-button round item-right icon-only color="secondary">
+                  <ion-icon name="md-more"></ion-icon>
+                </button>
+                <h3>Macbook Pro</h3>
+                <h4>$ 556</h4>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+
+          <ion-col width-50>
+            <ion-card>
+              <ion-card-header>
+                <img src="assets/images/discover-img5.jpg" />
+                <button ion-button clear class="views">
+                  <i class="ads-icon view-icon"></i> 234
+                </button>
+
+                <button ion-button clear class="favs">
+                  <i class="ads-icon fav-icon"></i> 12
+                </button>
+              </ion-card-header>
+
+              <ion-card-content>
+                <button ion-button round item-right icon-only color="secondary">
+                  <ion-icon name="md-more"></ion-icon>
+                </button>
+                <h3>Macbook Pro</h3>
+                <h4>$ 556</h4>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+    </div>
+  </div>
+
+</ion-content>

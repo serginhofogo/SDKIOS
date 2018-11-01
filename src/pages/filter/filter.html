@@ -1,0 +1,140 @@
+<ion-header class="bar-gradient">
+  <ion-navbar color="gradient">
+    <ion-title>Filtros</ion-title>
+    <ion-buttons end>
+      <button ion-button color="light">
+        Limpiar
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Discover ads within 0 KM </ion-label>
+    <ion-range min="0" max="500" step="50" snaps="true"  [(ngModel)]="singleValue4"></ion-range>
+  </ion-item>
+
+  <ion-label>Seleccionar Categoría </ion-label>
+  <ion-list radio-group>
+    <ion-grid no-padding>
+      <ion-row align-items-start>
+        <ion-col col-3>
+          <ion-item>
+            <ion-label>
+              <span class="category-icon-wrapper green">
+                <i class="category-icon icon-mobile"></i>
+              </span>
+              Mobile
+            </ion-label>
+            <ion-radio value="mobile"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item wrap>
+            <ion-label>
+               <span class="category-icon-wrapper green2">
+                <i class="category-icon icon-appliances"></i>
+              </span>
+              Electronics & Appliances
+            </ion-label>
+            <ion-radio value="appliances"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-label>
+               <span class="category-icon-wrapper orange">
+                <i class="category-icon icon-cars"></i>
+              </span>
+              Cars
+            </ion-label>
+            <ion-radio value="cars"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-label>
+               <span class="category-icon-wrapper orange2">
+                <i class="category-icon icon-bikes"></i>
+              </span>
+              Bikes
+            </ion-label>
+            <ion-radio value="bikes"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-label>
+               <span class="category-icon-wrapper red">
+                <i class="category-icon icon-furniture"></i>
+              </span>
+              Furnitures
+            </ion-label>
+            <ion-radio value="furnitures"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-label>
+               <span class="category-icon-wrapper pink">
+                <i class="category-icon icon-fashion"></i>
+              </span>
+              Fashion
+            </ion-label>
+            <ion-radio value="fashion"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-label>
+               <span class="category-icon-wrapper purple">
+                <i class="category-icon icon-hobbies"></i>
+              </span>
+              Books, Sports & Hobbies
+            </ion-label>
+            <ion-radio value="hobbies"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-label>
+               <span class="category-icon-wrapper blue">
+                <i class="category-icon icon-pets"></i>
+              </span>
+              Pets
+            </ion-label>
+            <ion-radio value="pets"></ion-radio>
+          </ion-item>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+
+    <ion-label>Rango de Precions (USD $) </ion-label>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <ion-label stacked>Precio Desde</ion-label>
+          <ion-input type="number"></ion-input>
+        </ion-col>
+
+        <ion-col col-6>
+          <ion-label stacked>Precio Hasta</ion-label>
+          <ion-input type="number"></ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+</ion-content>
+
+<ion-footer color="lightgray">
+  <ion-toolbar>
+        <button class="button-gradient" ion-button round full>
+          Aplicar
+        </button>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,12 @@
+<ion-tabs  [selectedIndex]="3" tabsPlacement="bottom">
+  <ion-tab [root]="tab1Root" tabTitle="Productos" tabIcon="discover"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="Buscar" tabIcon="chats"></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="Favoritos" tabIcon="ads"></ion-tab>
+  <ion-tab [root]="tab4Root" tabTitle="Perfil" tabIcon="profile"></ion-tab>
+
+  <ion-fab right bottom (click)="publishAd()">
+    <button ion-fab class="button-gradient"><ion-icon name="cart"></ion-icon></button>
+
+  </ion-fab>
+</ion-tabs>
+ 
