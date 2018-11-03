@@ -9,13 +9,13 @@
   </div>
 
   <div class="login-box">
-    <form (ngSubmit)="login()" #registerForm="ngForm" novalidate>
+    <form (ngSubmit)="loginUser(registerForm.value)" #registerForm="ngForm" novalidate>
       <ion-label>Email ID</ion-label>
       <ion-item>
         <ion-badge item-left>
           <i class="form-icon email-icon"></i>
         </ion-badge>
-        <ion-input type="email" name="email" required></ion-input>
+        <ion-input type="email" name="email" required ngModel name="email"></ion-input>
       </ion-item>
 
       <ion-label>Contraseña</ion-label>
@@ -24,7 +24,7 @@
         <ion-badge item-left>
           <i class="form-icon lock-icon"></i>
         </ion-badge>
-        <ion-input type="password"  name="password" required></ion-input>
+        <ion-input type="password"  name="password" required ngModel name="password"></ion-input>
         <ion-badge item-right>
           <i class="form-icon eye-icon"></i>
         </ion-badge>

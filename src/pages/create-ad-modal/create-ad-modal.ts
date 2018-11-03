@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ViewController, App } from 'ionic-angular';
 
 import { PublishAdPage } from '../publish-ad/publish-ad';
+import { DiscoverPage } from '../discover/discover';
 
 @Component({
   selector: 'page-create-ad-modal',
@@ -14,8 +15,12 @@ export class CreateAdModalPage {
 
   }
 
-  public addProduct() {
+  public checkout() {
     this.app.getRootNav().push(PublishAdPage);
+  }
+
+  public continueShop() {
+    this.app.getRootNav().push(DiscoverPage);
   }
 
   dismiss() {

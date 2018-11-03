@@ -1,5 +1,13 @@
 page-discover {
 
+
+  .select-md {
+    padding: 1px 1px 1px 10px;
+  }
+  .label-md{
+    margin: 14px 2px 1px 0;
+  }
+
   scroll-content {
     margin-top: 16px !important;
   }
@@ -71,7 +79,7 @@ page-discover {
 
   ion-select {
     display: flex;
-    max-width: 70%;
+    max-width: 100%;
     overflow: hidden;
   }
 
@@ -79,8 +87,8 @@ page-discover {
     background-color:transparent !important;
   }
 
-  input-wrapper{
-    display: bock !important ;
+  .input-wrapper{
+    display: block !important ;
   }
 
   .card-background-page {

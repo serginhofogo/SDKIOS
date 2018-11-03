@@ -1,15 +1,24 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {Http,Headers} from '@angular/http';
 import 'rxjs/Rx';
 
 @Injectable()
 export class ProductsService{
     http:any;
     baseURL:String;
+    authKey:String;
+    
+
+    // from WEB
+    data:any;
+    token:String;
+    user:String;
+    
 
     constructor(http:Http){
         this.http = http;
         this.baseURL = 'http://easytool.wwwaz1-ss6.a2hosted.com:49152/';
+        this.token = "";
     }
 
     getProducts(category){
@@ -44,6 +53,19 @@ export class ProductsService{
         var tempBrand = this.http.get(formatURL).map(res => res.json());   
         console.log("tempBrand: " + JSON.stringify(tempBrand));
         return tempBrand;
+    }
+
+    loginUser(credentials){
+        let headers = new Headers();
+        headers.append('Content-Type','application/json');
+        this.data = credentials;
+        return this.http.post(this.baseURL.concat('user/login'),this.data,{ headers: headers})
+        .map(res => JSON.parse(res._body)); 
+    }
+
+    saveCredentials(usuario, token){
+        this.token = token;
+        this.user = usuario;
     }
 
 }

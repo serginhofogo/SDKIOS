@@ -60,8 +60,11 @@
 
 <ion-footer color="light">
   <ion-toolbar>
-    <button class="button-gradient" ion-button round full (click)="dismiss(); addProduct()">
-      Continue
+      <button class="button-gradient" ion-button round full (click)="dismiss(); continueShop()">
+          <ion-icon name="cart"></ion-icon>Continuar Comprando
+        </button>
+    <button class="button-gradient" ion-button round full (click)="dismiss(); checkout()">
+        <ion-icon name="card"></ion-icon>  Realizar Pago
     </button>
   </ion-toolbar>
 </ion-footer>

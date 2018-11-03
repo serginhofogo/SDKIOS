@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, App, AlertController} from 'ionic-angular';
 import { ProductsService } from '../../app/services/services';
+import { CreateAdModalPage } from '../create-ad-modal/create-ad-modal';
 
 @Component({
   selector: 'page-product',
@@ -15,7 +16,10 @@ export class ProductPage {
   brandName:String;
 
   public showSlideView:boolean = true;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private productService:ProductsService) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, public app: App, 
+    private productService:ProductsService,
+    private alertCtrl: AlertController) {
     this.getBaseURL();
     this.item = navParams.get('item');
     this.getBrand(this.item.brand);
@@ -48,6 +52,30 @@ export class ProductPage {
       console.log(this.brandImg);
       console.log(this.brandName);
     });
+  }
+
+  public buyProduct(item) {
+    console.log('Clicked');
+    console.log(item);
+    this.app.getRootNav().push(CreateAdModalPage,{item:item});
+  }
+
+
+
+  showPopup(title, text) {
+    let alert = this.alertCtrl.create({
+      title: title,
+      subTitle: text,
+      buttons: [
+        {
+          text: 'OK',
+          handler: data => {
+            this.navCtrl.popToRoot();
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
 }
