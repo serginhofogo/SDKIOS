@@ -54,10 +54,10 @@ export class ProductPage {
     });
   }
 
-  public buyProduct(item) {
+  public buyProduct() {
     console.log('Clicked');
-    console.log(item);
-    this.app.getRootNav().push(CreateAdModalPage,{item:item});
+    console.log(this.item);
+    this.app.getRootNav().push(CreateAdModalPage,{item:this.item});
   }
 
 
