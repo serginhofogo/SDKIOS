@@ -23,7 +23,7 @@ export class TabsPage {
   }
 
   publishAd() {
-    let modal = this.modalCtrl.create(CreateAdModalPage);
+    let modal = this.modalCtrl.create(DiscoverPage);
     modal.present();
   }
 }
