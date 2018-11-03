@@ -11,11 +11,14 @@ import { ProductsService } from '../../app/services/services';
 export class LoginPage {
   createSuccess = false;
   registerCredentials = {email: '', password: ''};
+  registerForm: any;
+
+  
 
   constructor(private nav: NavController,
     private productService:ProductsService, 
     private alertCtrl: AlertController) {
-
+      this.registerForm = {email:"serginho9@live.com",password:"1234567"};
   }
 
   public createAccount() {
