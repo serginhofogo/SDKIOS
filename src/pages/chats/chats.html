@@ -15,58 +15,57 @@
 <ion-content>
   <div [ngSwitch]="chat">
     <ion-list *ngSwitchCase="'buying'">
-      <ion-item class="item-unread" (click)="openChat()">
-        <ion-thumbnail item-left>
-          <img src="assets/images/user-tn.jpg" />
-          <em class="online"></em>
-        </ion-thumbnail>
-        <ion-badge item-right>3</ion-badge>
-        <ion-badge item-right class="time">just now</ion-badge>
 
-        <h1>Jonathan Parle</h1>
-        <h2>Macbook Pro</h2>
-        <p>Hi John, I would like to buy your Macbook Pro</p>
-      </ion-item>
+        <ion-item class="wraps">
+            <ion-label color="primary">Búsqueda</ion-label>
+            <ion-input placeholder="Nombre:"></ion-input>
+        </ion-item>
 
-      <ion-item (click)="openChatBg()">
-        <ion-thumbnail item-left>
-          <img src="assets/images/sue-chang.jpg" />
-          <em></em>
-        </ion-thumbnail>
-        <ion-badge item-right class="time">1 hour ago</ion-badge>
+        <ion-item class="item-unread" *ngFor="let item of items" >
+            <ion-thumbnail item-left>
+              <img (click)="showProduct(item)" src="{{myBaseURL}}{{item.productImage[0]}}" />
+              <em class="online"></em>
+            </ion-thumbnail>
+            <ion-badge item-right class="time">
+                <button *ngIf="item.liked == null" ion-button color="primary" (click)="liked(item)" clear item-end icon-start>
+                    <ion-icon name='heart'></ion-icon>
+                  </button>
+                  <button *ngIf="item.liked != null" ion-button color="primary" (click)="liked(item)" clear item-end icon-start>
+                    <ion-icon name='heart' color="danger"></ion-icon>
+                  </button>
+            </ion-badge>
+            <h1>{{item.name}}</h1>
+            <h2>USD {{item.price}} / {{item.dimensions}}</h2>
+            <p>{{item.shortDesc}}</p>
+          </ion-item>
 
-        <h1>Sue Chang</h1>
-        <h2>Sun Glasses with 8MP HD Ca</h2>
-        <p>Alright I will be there to pick up.</p>
-      </ion-item>
-
-      <ion-item (click)="openChat()">
-        <ion-thumbnail item-left>
-          <img src="assets/images/angelica.jpg" />
-          <em></em>
-        </ion-thumbnail>
-        <ion-badge item-right class="time">yesterday</ion-badge>
-
-        <h1>Angelica Maths</h1>
-        <h2>Nikon Camera 4K</h2>
-        <p>I will send more pictures</p>
-      </ion-item>
     </ion-list>
 
     <ion-list *ngSwitchCase="'selling'">
 
+        <ion-item class="wraps" >
+            <ion-label color="primary">Búsqueda</ion-label>
+            <ion-input placeholder="Marca:"></ion-input>
+          </ion-item>
 
-      <ion-item (click)="openChat()">
-        <ion-thumbnail item-left>
-          <img src="assets/images/user-tn.jpg" />
-          <em></em>
-        </ion-thumbnail>
-        <ion-badge item-right class="time">yesterday</ion-badge>
+        <ion-item class="item-unread" *ngFor="let item of items" >
+            <ion-thumbnail item-left>
+              <img (click)="showProduct(item)" src="{{myBaseURL}}{{item.productImage[0]}}" />
+              <em class="online"></em>
+            </ion-thumbnail>
+            <ion-badge item-right class="time">
+                <button *ngIf="item.liked == null" ion-button color="primary" (click)="liked(item)" clear item-end icon-start>
+                    <ion-icon name='heart'></ion-icon>
+                  </button>
+                  <button *ngIf="item.liked != null" ion-button color="primary" (click)="liked(item)" clear item-end icon-start>
+                    <ion-icon name='heart' color="danger"></ion-icon>
+                  </button>
+            </ion-badge>
+            <h1>{{item.name}}</h1>
+            <h2>USD {{item.price}} / {{item.dimensions}}</h2>
+            <p>{{item.shortDesc}}</p>
+          </ion-item>
 
-        <h1>Jonathan Parle</h1>
-        <h2>Macbook Pro</h2>
-        <p>Hi John, I would like to buy your Macbook Pro</p>
-      </ion-item>
     </ion-list>
   </div>
 </ion-content>

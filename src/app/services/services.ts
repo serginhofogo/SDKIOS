@@ -13,11 +13,13 @@ export class ProductsService{
     data:any;
     token:String;
     user:String;
+    listId:String;
     
 
     constructor(http:Http){
         this.http = http;
         this.baseURL = 'http://easytool.wwwaz1-ss6.a2hosted.com:49152/';
+        // this.baseURL = 'http://localhost:49152/';
         this.token = "";
     }
 
@@ -68,4 +70,116 @@ export class ProductsService{
         this.user = usuario;
     }
 
+    loadOrders(){
+        var myAuth = this.token;
+        let headers = new Headers();
+        headers.append('Authorization', `Bearer ${myAuth}`);
+        var formatURL = this.baseURL+'orders/email/'+this.user;   
+        var myOrders = this.http.get(formatURL,{ headers: headers}).map(res => res.json());   
+        return myOrders;
+    }
+
+    createOrder(myOrder){
+        console.log("Calling create service ");
+        var myAuth = this.token;
+        const formCat = new FormData;
+        formCat.append('user',this.user.toString());
+        formCat.append('estado','open');
+        formCat.append('items',JSON.stringify(myOrder));
+        let headers = new Headers();
+        headers.append('Authorization', `Bearer ${myAuth}`);
+        var formatURL = this.baseURL+'orders/';   
+        var myOrders = this.http.post(formatURL,formCat,{ headers: headers}).map(res => res.json());   
+        return myOrders;
+    }
+
+    updateOrder(myOrder){
+        console.log("Calling update service ");
+        var myAuth = this.token;
+        const formCat = new FormData;
+        formCat.append('user',this.user.toString());
+        formCat.append('estado',myOrder.estado);
+        formCat.append('items',JSON.stringify(myOrder.items));
+        if(myOrder.delivery != null){
+            formCat.append('delivery',myOrder.delivery);
+        }
+        let headers = new Headers();
+        headers.append('Authorization', `Bearer ${myAuth}`);
+        var formatURL = this.baseURL + 'orders/update/' + myOrder._id;   
+        var myOrders = this.http.patch(formatURL,formCat,{ headers: headers}).map(res => res.json());   
+        return myOrders;
+    }
+
+    registerUser(registerForm, myPhoto){
+        console.log("Calling create service ");
+        const formCat = new FormData;
+        formCat.append('name',registerForm.name);
+        formCat.append('email',registerForm.email);
+        formCat.append('password',registerForm.password);
+        formCat.append('numeroCelular',registerForm.numeroCelular);
+        formCat.append('userImage', myPhoto, registerForm.numeroCelular + ".jpg");
+        let headers = new Headers();
+        var formatURL = this.baseURL+'user/signup';   
+        var myOrders = this.http.post(formatURL,formCat,{ headers: headers}).map(res => res.json());   
+        return myOrders;
+    }
+
+    getUser(){
+        var myAuth = this.token;
+        let headers = new Headers();
+        headers.append('Authorization', `Bearer ${myAuth}`);
+        var formatURL = this.baseURL+'user/user/'+this.user;   
+        var myUser = this.http.get(formatURL,{ headers: headers}).map(res => res.json());   
+        return myUser;
+    }
+
+
+    createUserList(){
+        var myAuth = this.token;
+        let headers = new Headers();
+        headers.append('Authorization', `Bearer ${myAuth}`);
+        var formatURL = this.baseURL+'lists/';
+        const formCat = new FormData;
+        formCat.append('user',String(this.user));
+        formCat.append('products',"[]");
+        var myOrders = this.http.post(formatURL,formCat,{ headers: headers}).map(res => res.json());   
+        return myOrders;
+    }
+
+    updateList(myUserList){
+        console.log("willUpdateList: " + JSON.stringify(myUserList));
+        var myAuth = this.token;
+        let headers = new Headers();
+        headers.append('Authorization', `Bearer ${myAuth}`);
+        var formatURL = this.baseURL+'lists/update/'+this.listId;
+        const formCat = new FormData;
+        formCat.append('user',String(this.user));
+        formCat.append('products',JSON.stringify(myUserList));
+        var myList = this.http.patch(formatURL,formCat,{ headers: headers}).map(res => res.json());   
+        return myList;
+    }
+
+    saveUserListId(listId){
+        this.listId = listId;
+    }
+
+    getUserList(){
+        console.log("Obteniendo Lista ...");
+        var myAuth = this.token;
+        let headers = new Headers();
+        headers.append('Authorization', `Bearer ${myAuth}`);
+        var formatURL = this.baseURL+'lists/'+this.listId;   
+        var myList = this.http.get(formatURL,{ headers: headers}).map(res => res.json(), err =>err.json()); 
+        return myList;
+    }
+
+    getUserListProducts(){
+        console.log("Obteniendo Lista ...");
+        var myAuth = this.token;
+        let headers = new Headers();
+        headers.append('Authorization', `Bearer ${myAuth}`);
+        var formatURL = this.baseURL+'lists/email/'+this.user;   
+        var myList = this.http.get(formatURL,{ headers: headers}).map(res => res.json(), err =>err.json()); 
+        return myList;
+    }
 }

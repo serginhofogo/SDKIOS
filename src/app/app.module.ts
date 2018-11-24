@@ -20,6 +20,7 @@ import { ChatBuyerPopover } from '../pages/chat-bg/chat-buyer-popover';
 import { MyProductPage } from '../pages/my-product/my-product';
 import { PublishAdPage } from '../pages/publish-ad/publish-ad';
 import { CreateAdModalPage } from '../pages/create-ad-modal/create-ad-modal';
+import { ProductList } from '../pages/productList/productList';
 
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -31,9 +32,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 
+import { Camera } from '@ionic-native/camera';
+
 const pages = [ LoginPage, RegisterPage, ProfilePage, TabsPage, AdsPage,
   ChatsPage, DiscoverPage, FilterPage, ProductPage, ChatPage, ChatPopover,
-  ChatBgPage, ChatBuyerPopover, MyProductPage, PublishAdPage, CreateAdModalPage];
+  ChatBgPage, ChatBuyerPopover, MyProductPage, PublishAdPage, CreateAdModalPage, ProductList];
 
 const nativeProviders = [ SplashScreen, StatusBar ];
 
@@ -57,6 +60,6 @@ const nativeProviders = [ SplashScreen, StatusBar ];
     MyApp,
     pages
   ],
-  providers: [ nativeProviders ]
+  providers: [ nativeProviders, Camera]
 })
 export class AppModule {}

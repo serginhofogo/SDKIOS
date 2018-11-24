@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { ProductsService } from '../../app/services/services';
 import { NavController, App } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 
@@ -9,10 +9,30 @@ import { LoginPage } from '../login/login';
 })
 export class ProfilePage {
 
-  constructor(public nav: NavController, public app: App) {
+  myBaseURL:String = '';
+  myUser: any = null;
+  userImage:String;
 
+  constructor(public nav: NavController, 
+    public app: App,
+    public productService: ProductsService) {
+    this.getBaseURL()
+    this.getUserData();
   }
+
+  getUserData(){
+    this.productService.getUser().subscribe(response =>{
+      this.myUser = response;
+      console.log(JSON.stringify(response));
+    });
+  }
+
   public goToLogin() {
     this.app.getRootNav().push(LoginPage);
+  }
+
+
+  getBaseURL(){
+    this.myBaseURL = this.productService.getBaseURL();
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, LoadingController } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { TabsPage } from '../tabs/tabs';
 import { ProductsService } from '../../app/services/services';
@@ -13,12 +13,10 @@ export class LoginPage {
   registerCredentials = {email: '', password: ''};
   registerForm: any;
 
-  
-
   constructor(private nav: NavController,
     private productService:ProductsService, 
-    private alertCtrl: AlertController) {
-      this.registerForm = {email:"serginho9@live.com",password:"1234567"};
+    private alertCtrl: AlertController,
+    public loadingCtrl: LoadingController) {
   }
 
   public createAccount() {

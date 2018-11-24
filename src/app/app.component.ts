@@ -4,6 +4,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ProductsService } from './services/services';
 import { LoginPage } from '../pages/login/login';
+import { DiscoverPage } from '../pages/discover/discover';
+import { TabsPage } from '../pages/tabs/tabs';
 
 
 @Component({
@@ -11,7 +13,7 @@ import { LoginPage } from '../pages/login/login';
   providers: [ProductsService]
 })
 export class MyApp {
-  rootPage = LoginPage
+  rootPage = TabsPage
 
   constructor(private platform: Platform, private statusBar: StatusBar,
     private splashScreen: SplashScreen) {

@@ -1,4 +1,33 @@
 page-create-ad-modal {
+
+  .button-gradient2{
+    background: black;
+    -webkit-animation-name: blackWhiteFade; 
+    -webkit-animation-iteration-count: infinite;  
+    -webkit-animation-duration: 2s; 
+  }
+
+  .button-gradient3{
+    background: gray;
+  }
+
+  .total-style{
+    color: cornflowerblue;
+    font-size: 20px !important;
+    text-align: right !important;
+    font-weight: bold;
+  }
+
+  @-webkit-keyframes blackWhiteFade {  
+    0% { background-color: #1e5799; }
+    50% { background-color: black; }
+    100% { background-color: #0e7eff; }
+  }
+
+  .toolbar-content-md{
+    display: contents;
+  }
+
   .header {
     box-shadow: none;
     border: none;

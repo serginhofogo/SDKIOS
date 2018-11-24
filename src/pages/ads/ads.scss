@@ -1,133 +1,111 @@
 page-ads {
-  .grid {
-    padding: 0;
+  .segment-md {
+    .segment-button {
+      color:#FFF;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-color: transparent;
+
+      &.egment-activated {
+        border-bottom: solid 2px #FFF;
+      }
+    }
   }
-  .card {
-    margin: 0 1px 15px !important;
-    width: 100% !important;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(1,1,1,.1);
-    text-align: left;
-    color:#3f3f3f;
 
-    h3 {
-      margin: 0 0 3px;
-      font-size:14px;
-      font-family: 'montserrat-light';
-    }
-    h4 {
-      margin: 0;
-      font-size: 18px;
-      font-family: 'montserrat-light';
-    }
-
-    .card-header {
+  ion-thumbnail {
+    position: relative;
+    img {
+      border-radius:40px;
+      overflow: hidden;
       position: relative;
-      padding: 0;
-
-      img {
-        position: relative;
-        z-index:1;
-      }
-
-      .card-options {
-        position: absolute;
-      }
-
-      &:before {
-        position:absolute;
-        top:0;
-        left:0;
-        bottom:0;
-        right: 0;
-        padding: 10px;
-        z-index:2;
-        background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,.7) 70%);
-        background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,.7) 100%);
-        color:#FFF;
-        z-index:2;
-        content:'';
-      }
-      .button {
-        position: absolute;
-        color: #FFF;
-        bottom: 5px;
-        z-index: 3;
-        width: 50%;
-        padding: 10px 0;
-        text-align: center;
-        margin: 0;
-        height: auto;
-
-        .button-inner {
-          display: block;
-        }
-
-        &.views {
-          left:0;
-        }
-        &.favs {
-          right: 0;
-        }
-
-        .ads-icon {
-          display: inline-block;
-          width:21px;
-          height: 16px;
-          background: url(../assets/images/ads-icons.png) no-repeat;
-          background-size:21px auto;
-          margin-right: 5px;
-          vertical-align: middle;
-
-          &.view-icon {
-            background-position: 0 0;
-          }
-          &.fav-icon {
-            background-position: 0 -16px;
-          }
-        }
-      }
+      z-index:1;
     }
 
-    ion-card-content {
-      padding: 15px 6px 12px 12px  !important;
+    em {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border-radius: 8px;
+      border: solid 3px #FFF;
+      background:#727272;
+      bottom: -3px;
+      right: 3px;
+      z-index: 2;
 
-      .button {
-        float:right;
-        width: 30px;
-        height: 30px;
-        padding: 0;
-        margin: 0;
-        border-radius: 15px;
-        box-shadow: 0 10px 20px rgba(68,64,62,.3);
-        text-indent: 0;
-
-        .button-inner {
-          padding: 0;
-
-          ion-icon {
-            font-size: 1.6em;
-            padding: 0;
-          }
-        }
+      &.online {
+        background:#21c055;
       }
     }
   }
+  ion-item.item {
+    border-bottom: solid 1px #f1f1f1 !important;
+    border-top: none;
+    background:#fbfbfb;
 
-  ion-badge.distance {
-    position: absolute;
-    top:10px;
-    background: #FFF;
-    box-shadow: 0 5px 15px rgba(0,0,0,.3);
-    border-radius:20px;
-    font-size:14px;
-    color:#727272;
-    letter-spacing: 1px;
-    padding: 5px 15px;
-    z-index: 999;
-    width: 150px;
-    left: 50%;
-    margin-left:-75px;
+    &.item-unread {
+      background:#FFF;
+    }
+
+    .item-inner {
+      border: none !important;
+    }
+
+    ion-label {
+      margin-top: 25px;
+      margin-bottom: 20px;
+      text-transform: none;
+      letter-spacing: 0;
+
+      h1 {
+        font-family: 'montserrat-light';
+        font-size: 18px;
+        font-weight: 400;
+        margin: 0;
+        color: #393939;
+        text-transform: none;
+        letter-spacing: 0;
+      }
+      h2 {
+        font-size: 14px;
+        font-weight: 400;
+        color: #ff3f47;
+        text-transform: none;
+        letter-spacing: 0;
+        margin:3px 0 8px;
+      }
+      p {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-size: 14px;
+        color: #727272;
+        font-family: 'montserrat-light';
+        margin: 0;
+      }
+    }
+
+    .badge:not(.time) {
+      background:#ff1562;
+      width: 25px;
+      height: 25px;
+      border-radius: 15px;
+      line-height: 19px;
+      font-size:12px;
+
+    }
+
+    .badge.time {
+      background: none;
+      color:#aeaeae;
+      font-size:12px;
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      top: 25px;
+      right: 15px;
+      font-weight: 400;
+    }
   }
 
 }

@@ -6,12 +6,12 @@
     </button>
     <div class="bg"></div>
     <span class="user-tn">
-      <img src="assets/images/profile-img.jpg" />
+      <img *ngIf="myUser != null && myBaseURL != ''" src=">{{myBaseURL}}{{myUser.userImage}}" />
     </span>
   </div>
 
-  <h2>John Doe</h2>
-  <h3>Bangalore, India</h3>
+  <h2 *ngIf="myUser != null">{{myUser.name}}</h2>
+  <h3>Bienvenido</h3>
 
   <div class="connected">
     <span>Connected with</span>

@@ -1,15 +1,15 @@
+<!--
 <ion-header class="bar-gradient">
   <ion-navbar color="gradient">
     <div></div>
     <ion-item>
-        <ion-label> <h3>Seleccione:</h3></ion-label><br/>
+        <ion-label> <h5 class="mon">Seleccione:</h5></ion-label><br/>
         <ion-select (ionChange)="changeCategory()" [(ngModel)]="category" name="category">
             <ion-option *ngFor="let categories of categoriesList" value={{categories.code}}>
             {{categories.name}}</ion-option>
           </ion-select>
     </ion-item> 
-    
-     
+
     <ion-buttons end>
       <button ion-button icon-only (click)="toggleSearch()">
         <i class="header-icon search-icon"></i>
@@ -28,21 +28,124 @@
 
   </ion-searchbar>
 </ion-header>
-<ion-badge class="distance" color="light">within 3 km</ion-badge>
-<ion-content padding>
+
+-->
+
+
+
+<ion-header class="bar-gradient">
+<ion-segment [(ngModel)]="home" mode="md" color="light">
+  <ion-segment-button value="offers" >
+    Ofertas
+  </ion-segment-button>
+  <ion-segment-button value="categories">
+    Categorías
+  </ion-segment-button>
+</ion-segment>
+</ion-header>
+
+
+
+
+
+
+
+
+<ion-content padding class="card-background-page">
+    <div [ngSwitch]="home">
+      <ion-list *ngSwitchCase="'offers'">
+
+    <ion-slides>
+        <ion-slide>
+          <img src="https://doofindermedia.s3.amazonaws.com/blog/2017/09/11/082814-promociones-de-ventas-ejemplos-ecommerce.jpg" />
+        </ion-slide>
+        <ion-slide style="background-color: yellow" >
+          <h1>Promoción 2</h1>
+        </ion-slide>
+        <ion-slide style="background-color: green">
+          <h1>Promoción 3</h1>
+        </ion-slide>
+      </ion-slides>
+
   <div *ngIf="showSearchResults">
     <ion-grid>
       <ion-row>
-        <ion-col width-50>
-            <ion-card *ngFor="let item of items"   (click)="showProduct(item)">
-                <img src="{{myBaseURL}}{{item.productImage[0]}}" />          
-                <div class="card-title">{{item.name}}</div>
-                <div class="card-subtitle">{{item.shortDesc}}</div>
-                <div class="card-price">$ {{item.price}}</div>
-            </ion-card>
+        <ion-col *ngFor="let item of items" col-6>
+            <ion-card  >
+                <ion-item>
+        
+                  <h2>{{item.name}}</h2>
+                  <p>Precio: USD {{item.price}}</p>
+                </ion-item>
+              
+                <img (click)="showProduct(item)" src="{{myBaseURL}}{{item.productImage[0]}}">
+              
+                <ion-card-content>
+                  <p>{{item.dimensions}}</p>
+                </ion-card-content>
+              
+                <ion-item actions>
+                    <button ion-button color="primary" clear item-end icon-start>
+                        <ion-icon name='cart'></ion-icon>
+                      </button>
+                      <button ion-button color="primary" clear item-end icon-start>
+                          <ion-icon name='star'></ion-icon>
+                        </button>
+                    
+                    <button *ngIf="item.liked == null" ion-button color="primary" (click)="liked(item)" clear item-end icon-start>
+                      <ion-icon name='heart'></ion-icon>
+                    </button>
+                    <button *ngIf="item.liked != null" ion-button color="primary" (click)="liked(item)" clear item-end icon-start>
+                      <ion-icon name='heart' color="danger"></ion-icon>
+                    </button>
+
+                  </ion-item>
+              </ion-card>
         </ion-col>
       </ion-row>
     </ion-grid>
 
+
+            
+  <!--
+    <ion-item *ngFor="let item of items"  (click)="showProduct(item)">
+        <ion-thumbnail item-left>
+          <img src="{{myBaseURL}}{{item.productImage[0]}}"  />
+          <em class="online"></em>
+        </ion-thumbnail>
+        <ion-badge item-right ><ion-icon name="cart"></ion-icon></ion-badge>
+        <ion-badge item-right class="time">Nuevo</ion-badge>
+
+        <h1>{{item.name}}</h1>
+        <h2>$ {{item.price}}</h2>
+        <p>{{item.shortDesc}}</p>
+    </ion-item>
+  -->
+
   </div>
+
+</ion-list>
+</div>
+    
+
+<div [ngSwitch]="home">
+  <ion-list *ngSwitchCase="'categories'">
+      <ion-grid>
+          <ion-row>
+            <ion-col *ngFor="let cat of categoriesList" col-6>
+                <ion-card  >
+                    <ion-item>
+                      <h2>{{cat.name}}</h2>
+                    </ion-item>
+                    <img (click)="showCategory(cat)" src="{{myBaseURL}}{{cat.categoryImage}}">
+                    <ion-card-content>
+                      <p>{{cat.shortDesc}}</p>
+                    </ion-card-content>
+                  </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+  </ion-list>
+</div>
+
 </ion-content>

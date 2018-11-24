@@ -32,8 +32,8 @@
   
   .button-gradient {
     background-color: #1e5799;
-    background: -webkit-linear-gradient(45deg, #ff3f47 0%,#ff1562 100%);
-    background: linear-gradient(45deg, #ff3f47 0%,#ff1562 100%);
+    background: -webkit-linear-gradient(45deg, #ffce00 0%,#e48c07 100%);
+    background: linear-gradient(45deg, #ffce00 0%,#e48c07 100%);
     text-transform: uppercase;
   
     &.fab {
@@ -42,12 +42,13 @@
   }
   
   ion-label {
-    color: #ff3f47;
+    color: #504e4e;
     font-family: 'montserratregular';
     font-size:12px;
     letter-spacing: 1px;
     text-transform: uppercase;
     margin:0 0 10px 5px;
+    font-weight: bold;
   }
   
   ion-input {
@@ -119,18 +120,18 @@
   .toolbar-ios-gradient .toolbar-background-ios,
   .toolbar-md-gradient .toolbar-background-md{
     background-color: #1e5799;
-    background: -webkit-linear-gradient(45deg, #ff3f47 0%, #ff1562 100%);
-    background: linear-gradient(45deg, #ff3f47 0%, #ff1562 100%);
+    background: -webkit-linear-gradient(45deg, #dd9a42 0%, #e7b044 100%);
+    background: linear-gradient(45deg, #dd9a42 0%, #e7b044 100%);
     border: none;
   
   }
   ion-header {
-    box-shadow: 0 5px 15px rgba(255,34,90,.3);
+    box-shadow: 0 5px 15px #b7b2b34d;
   
     &.bar-gradient {
       background-color: #1e5799;
-      background: -webkit-linear-gradient(45deg, #ff3f47 0%, #ff1562 100%);
-      background: linear-gradient(45deg, #ff3f47 0%, #ff1562 100%);
+      background: -webkit-linear-gradient(45deg, #dd9a42 0%, #e7b044 100%);
+      background: linear-gradient(45deg, #dd9a42 0%, #e7b044 100%);
   
       > ion-title {
         margin: 10px 0;

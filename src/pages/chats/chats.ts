@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { ProductsService } from '../../app/services/services';
 import { NavController, App } from 'ionic-angular';
 import { ChatPage } from '../chat/chat';
 import { ChatBgPage } from '../chat-bg/chat-bg';
@@ -10,15 +10,11 @@ import { ChatBgPage } from '../chat-bg/chat-bg';
 })
 export class ChatsPage {
   chat = "buying";
+  items:any;
 
-  constructor(public nav: NavController, public app: App) {
+  constructor(public nav: NavController, public app: App,  private productService:ProductsService) {
 
   }
-  public openChat() {
-    this.app.getRootNav().push(ChatPage);
-  }
-  public openChatBg() {
-    this.app.getRootNav().push(ChatBgPage);
-  }
+
 
 }

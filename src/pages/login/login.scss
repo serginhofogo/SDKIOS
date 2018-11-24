@@ -12,10 +12,10 @@ page-login {
       padding-top:60px;
 
       .bg {
-        background-color: #1e5799;
-        background: -webkit-linear-gradient(45deg, #ff3f47 0%,#ff1562 100%);
-        background: linear-gradient(45deg, #ff3f47 0%,#ff1562 100%);
-        box-shadow: 0 5px 15px rgba(255, 24, 90, .3);
+        background-color: #636363;
+        background: -webkit-linear-gradient(45deg, #e48c07 0%,#ffda00 100%);
+        background: linear-gradient(45deg, #e48c07 0%,#ffda00 100%);
+        box-shadow: 0 5px 15px rgba(255, 205, 24, 0.3);
         position: absolute;
         bottom:20px;
         right:-20px;
@@ -34,8 +34,8 @@ page-login {
         bottom:-36px;
         border-radius:56px;
         margin-left:-56px;
-        box-shadow: 5px 5px 10px rgba(255, 24, 90, .2);
-        color:#ff3f47;
+        box-shadow: 0 5px 15px rgba(255, 205, 24, 0.3);
+        color:#e48c07;
         font-size:38px;
         text-align:center;
         line-height:112px;

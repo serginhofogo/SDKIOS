@@ -5,12 +5,19 @@ page-chats {
       font-size: 14px;
       letter-spacing: 1px;
       text-transform: uppercase;
-      border-botom0color: transparent;
+      border-color: transparent;
 
       &.egment-activated {
         border-bottom: solid 2px #FFF;
       }
     }
+  }
+
+  .wraps{
+    display: block;
+  }
+  .input-wrapper{
+    display: block;
   }
 
   ion-thumbnail {

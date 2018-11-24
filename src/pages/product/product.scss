@@ -47,6 +47,10 @@ page-product {
     overflow: visible;
     margin-bottom: 30px;
 
+    img{
+      height: 100%;
+      background-color: white;
+    }
     ion-card-header {
       background:#FFF;
       border-radius: 6px 6px 0 0;
@@ -54,7 +58,7 @@ page-product {
       white-space: normal;
       h1 {
         font-family: 'montserrat-light';
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 400;
         margin:0;
         color:#393939;
@@ -74,12 +78,12 @@ page-product {
       }
       .user-tn {
         float:left;
-        width:80px;
+        width:90px;
         height: 80px;
         border-radius:80px;
         overflow: hidden;
         box-shadow: 0 5px 15px rgba(0,0,0,.2);
-        margin:-30px 15px 20px 0;
+        margin:-30px 8px 20px 0;
         border: solid 3px #FFF;
       }
       ion-badge {

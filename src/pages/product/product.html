@@ -37,26 +37,32 @@
       <button ion-button clear>
         <i class="comment-icon"></i>
       </button>
+
       <ion-badge>PRECIO: ${{item.price}}</ion-badge>
-      <table>
-        <tr>
-          <td>
-              <ion-item>
-                <ion-label color="primary" stacked>Cantidad</ion-label>
-                <ion-input type="number"  placeholder="" min="1" step="1"></ion-input>
-              </ion-item>
-          </td>
-          <td>
-              <ion-item>
-                  <ion-label>OPCIONES</ion-label>
-                  <ion-select [(ngModel)]="options">
-                    <ion-option value="0">Negro</ion-option>
-                    <ion-option value="1">Rojo</ion-option>
-                  </ion-select>
+
+      <form #myOrder="ngForm" (ngSubmit)="buyProduct(myOrder.value);" >
+
+        <table>
+          <tr>
+            <td>
+                <ion-item>
+                  <ion-label color="primary" stacked>Cantidad</ion-label>
+                  <ion-input type="number"  placeholder="" min="1" step="1" ngModel name="quantity"></ion-input>
                 </ion-item>
-          </td>
-        </tr>
-      </table>
+            </td>
+            <td>
+                <ion-item>
+                    <ion-label>OPCIONES</ion-label>
+                    <ion-select [(ngModel)]="options" ngModel name="option">>
+                      <ion-option value="0">Negro</ion-option>
+                      <ion-option value="1">Rojo</ion-option>
+                    </ion-select>
+                  </ion-item>
+            </td>
+          </tr>
+        </table>
+        <button type="submit">comprar</button>
+      </form>
 
     </ion-card-header>
     <ion-card-content>
@@ -75,5 +81,5 @@
 </ion-content>
 
 <ion-footer class="erp">
-  <button ion-button full round class="button-gradient" (click)="buyProduct()">Comprar</button>
+  <button ion-button full round class="button-gradient" (click)="buyProduct(myOrder.value);">Comprar</button>
 </ion-footer>

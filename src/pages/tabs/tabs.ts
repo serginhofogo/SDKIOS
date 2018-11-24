@@ -18,12 +18,16 @@ export class TabsPage {
   tab3Root: any = AdsPage;
   tab4Root: any = ProfilePage;
 
-  constructor(public nav: NavController, public app: App, public modalCtrl: ModalController) {
+  constructor(public nav: NavController, 
+    public app: App, 
+    public modalCtrl: ModalController) {
 
   }
 
   publishAd() {
-    let modal = this.modalCtrl.create(DiscoverPage);
+    console.log("Show Publish");
+    let modal = this.modalCtrl.create(CreateAdModalPage);
     modal.present();
   }
+
 }

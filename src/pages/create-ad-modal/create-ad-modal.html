@@ -17,53 +17,52 @@
     <ion-label>Mis Herramientas: </ion-label>
   </ion-item>
 
-  <ion-thumbnail class="cover">
-    <img src="assets/images/discover-img.jpg" />
-    <ion-badge>Cover</ion-badge>
-  </ion-thumbnail>
 
   <ion-grid>
-    <ion-row>
-      <ion-col col-3>
+    <ion-row *ngFor="let product of order.items">
+      <ion-col col-3 >
         <ion-thumbnail class="ad-image selected">
-          <img src="assets/images/discover-img.jpg" />
-          <ion-badge>Cover</ion-badge>
+          <img src="{{product.imgUrl}}" />
+          <ion-badge>{{product.productName}}</ion-badge>
         </ion-thumbnail>
       </ion-col>
-
-      <ion-col col-3>
-        <ion-thumbnail class="ad-image">
-          <img src="assets/images/discover-img.jpg" />
-        </ion-thumbnail>
+      <ion-col col-3 >
+        <div class="">
+          <ion-label stacked>Cantidad</ion-label>
+          <ion-label>{{product.quantity}}</ion-label>
+        </div>
       </ion-col>
-
-      <ion-col col-3>
-        <button ion-button icon-only class="add-image-button">
-          <i class="add-image-icon"></i>
-        </button>
-      </ion-col>
-
+      <ion-col col-3 >
+          <div class="">
+            <ion-label stacked>Total $</ion-label>
+            <ion-label>{{product.total}}</ion-label>
+          </div>
+        </ion-col>
+        <ion-col col-3 >
+            <button class="button-gradient button-gradient3" ion-button round full (click)="deleteItem(product._id)">
+                <ion-icon name="trash"></ion-icon>
+            </button>
+        </ion-col>
     </ion-row>
   </ion-grid>
 
   <ion-item>
-    <ion-label stacked>Title</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
+      <ion-label class="total-style" stacked>Total: $ {{total}}</ion-label>
+    </ion-item>
 
-  <ion-item>
-    <ion-label stacked>Price</ion-label>
-    <ion-input type="number"></ion-input>
-  </ion-item>
+    <ion-item>
+        <ion-label>Editar datos de Facturación:</ion-label>
+        <ion-toggle [(ngModel)]="sameRecipe"></ion-toggle>
+      </ion-item>
 
 </ion-content>
 
 <ion-footer color="light">
   <ion-toolbar>
-      <button class="button-gradient" ion-button round full (click)="dismiss(); continueShop()">
+      <button class="button-gradient" ion-button round full (click)="dismiss();">
           <ion-icon name="cart"></ion-icon>Continuar Comprando
         </button>
-    <button class="button-gradient" ion-button round full (click)="dismiss(); checkout()">
+    <button class="button-gradient button-gradient2" ion-button round full (click)="dismiss(); checkout()">
         <ion-icon name="card"></ion-icon>  Realizar Pago
     </button>
   </ion-toolbar>
