@@ -48,7 +48,7 @@ const nativeProviders = [ SplashScreen, StatusBar ];
   ],
   imports: [
     BrowserModule,
-    HttpModule, 
+    HttpModule,  
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

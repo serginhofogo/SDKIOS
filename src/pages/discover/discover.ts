@@ -3,8 +3,6 @@ import { NavController, App } from 'ionic-angular';
 import { FilterPage } from '../filter/filter';
 import { ProductPage } from '../product/product';
 import { ProductsService } from '../../app/services/services';
-import { ViewChild } from '@angular/core';
-import { Slides } from 'ionic-angular';
 
 @Component({
   selector: 'page-discover',
@@ -17,8 +15,8 @@ export class DiscoverPage {
 
 
   items: any;
-  categoriesList: any;
-  category: any;
+  categoriesList: any; 
+  category: any; 
   limit: any;
   userList:any;
 
@@ -54,7 +52,7 @@ export class DiscoverPage {
 
   public showProduct(item) {
     console.log('Clicked');
-    console.log(item);
+    console.log(item); 
     this.app.getRootNav().push(ProductPage,{item:item});
   }
 

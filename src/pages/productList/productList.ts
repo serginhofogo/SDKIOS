@@ -7,17 +7,26 @@ import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 
 
-
+@Component({
+  selector: 'page-productList',
+  templateUrl: 'productList.html'
+})
   export class ProductList {
 
-    constructor(public nav: NavController, public app: App, private productService:ProductsService) {
-        this.toggled = false;
-        this.showSearchResults = true;
-        this.getBaseURL();
-        this.getCategoriesList();
-        this.getDefaults();
-        this.liked(null);
+    myBaseURL:String;
+
+    constructor(public nav: NavController, 
+      public app: App, 
+      private productService:ProductsService) {
+
+        this.getBaseURL(); 
       }
 
+      getBaseURL(){
+        this.myBaseURL = this.productService.getBaseURL();
+      }
+
+ 
+ 
   }
    
