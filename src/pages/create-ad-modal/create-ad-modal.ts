@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { ViewController, App, LoadingController, NavParams, AlertController} from 'ionic-angular';
-
 import { PublishAdPage } from '../publish-ad/publish-ad';
 import { DiscoverPage } from '../discover/discover';
-
 import { ProductsService } from '../../app/services/services';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-create-ad-modal',
@@ -23,15 +22,24 @@ export class CreateAdModalPage {
     public navParams: NavParams,
     private alertCtrl: AlertController,) {
 
-      this.order = navParams.get('order');
-      this.calculateTotal();
+      console.log("Orders Page");
+      var user = this.productService.getEmail();
 
-      this.baseURL = this.productService.getBaseURL();
-
-      for(var i=0;i<this.order.items.length;i++){
-        console.log(this.order.items[i].product);
-        this.getProduct(this.order.items[i].product, i);
+      if(user!=null && user != ""){
+        console.log("Will load Orders");
+        this.order = navParams.get('order');
+        this.calculateTotal();
+        this.baseURL = this.productService.getBaseURL();
+        for(var i=0;i<this.order.items.length;i++){
+          console.log(this.order.items[i].product);
+          this.getProduct(this.order.items[i].product, i);
+        }
+      }else{
+        console.log("Go to Login");
+        this.app.getRootNav().push(LoginPage);
       }
+
+
 
   }
 

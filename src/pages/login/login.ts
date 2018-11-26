@@ -19,6 +19,10 @@ export class LoginPage {
     public loadingCtrl: LoadingController) {
   }
 
+  goback() {
+    this.nav.pop();
+  }
+
   public createAccount() {
     this.nav.push(RegisterPage);
   }

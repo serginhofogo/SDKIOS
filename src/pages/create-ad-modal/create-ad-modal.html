@@ -18,7 +18,7 @@
   </ion-item>
 
 
-  <ion-grid>
+  <ion-grid *ngIf="order != null">
     <ion-row *ngFor="let product of order.items">
       <ion-col col-3 >
         <ion-thumbnail class="ad-image selected">

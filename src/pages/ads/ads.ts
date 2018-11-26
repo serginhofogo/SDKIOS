@@ -3,6 +3,7 @@ import { ProductsService } from '../../app/services/services';
 import { NavController, App } from 'ionic-angular';
 import { MyProductPage } from '../my-product/my-product';
 import { ProductPage } from '../product/product';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-ads',
@@ -17,7 +18,17 @@ export class AdsPage {
   constructor(public nav: NavController, public app: App, public productService : ProductsService) {
     this.getBaseURL();
     this.liked(null);
+    this.getEmail();
   }
+
+  getEmail(){
+    var email = this.productService.getEmail();
+    if(email==null || email == ""){
+      this.app.getRootNav().push(LoginPage);
+    }
+  }
+
+
 
   getBaseURL(){
     this.myBaseURL = this.productService.getBaseURL();
@@ -56,13 +67,13 @@ export class AdsPage {
       }
 
       try{
-        console.log("get product list");
+        console.log("Getting product list");
         this.productService.getUserListProducts().subscribe(response => {
           this.items = response.products;
           for(var r=0 ; r<this.items.length; r++){
             this.items[r].liked = "1";
           }
-          console.log("Productos: " + JSON.stringify(this.items));
+          //console.log("Productos: " + JSON.stringify(this.items));
           this.productService.saveUserListId(response._id);
           if(likedItem != null){
             this.productService.getUserList().subscribe(response => {
@@ -83,16 +94,22 @@ export class AdsPage {
                   }
                 }
                 this.userList.splice(tempIndex, 1);
-                //removel liked
+
+                //remove liked from screen
+                console.log("Items en pantalla: " + this.items.length);
                 for(var j=0;j<this.items.length;j++){
-                  if(this.items._id==likedItem._id){
-                    this.items[j].splice(j,1);
+                  if(this.items[j]._id==likedItem._id){
+                    console.log("Removiendo:" + this.items[j]._id);
+                    this.items.splice(j,1);
                   }
                 }
+                console.log("Items en pantalla after: " + this.items.length);
+
+
               }else{
                 this.userList.push(likedItem._id);
               }
-              console.log("Nueva Lista: " + JSON.stringify(this.userList));
+              console.log("Nueva Lista: " + JSON.stringify(this.userList) + " " + this.userList.length );
               this.productService.updateList(this.userList).subscribe(response =>{
                 console.log(JSON.stringify(response));
               })

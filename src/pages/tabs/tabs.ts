@@ -26,8 +26,11 @@ export class TabsPage {
 
   publishAd() {
     console.log("Show Publish");
+    this.app.getRootNav().push(CreateAdModalPage);
+/*
     let modal = this.modalCtrl.create(CreateAdModalPage);
     modal.present();
+*/
   }
 
 }

@@ -16,12 +16,13 @@
   <div [ngSwitch]="chat">
     <ion-list *ngSwitchCase="'buying'">
 
-        <ion-item class="wraps">
-            <ion-label color="primary">Búsqueda</ion-label>
-            <ion-input placeholder="Nombre:"></ion-input>
+        <ion-item >
+            <ion-input [(ngModel)]="namem" placeholder="Nombre:"></ion-input>
         </ion-item>
 
-        <ion-item class="item-unread" *ngFor="let item of items" >
+        <button ion-button color="primary" (click)="searchByName(namem)" ><ion-icon name='search'></ion-icon></button>
+        
+        <ion-item class="item-unread" *ngFor="let item of items1" >
             <ion-thumbnail item-left>
               <img (click)="showProduct(item)" src="{{myBaseURL}}{{item.productImage[0]}}" />
               <em class="online"></em>
@@ -44,8 +45,11 @@
     <ion-list *ngSwitchCase="'selling'">
 
         <ion-item class="wraps" >
-            <ion-label color="primary">Búsqueda</ion-label>
-            <ion-input placeholder="Marca:"></ion-input>
+                <ion-label> <h5 class="mon">Seleccione:</h5></ion-label><br/>
+                <ion-select (ionChange)="changeBrand(brandm)" [(ngModel)]="brandm" name="brandm">
+                    <ion-option *ngFor="let brand of brands" value={{brand._id}}>
+                        {{brand.name}}</ion-option>
+                  </ion-select>
           </ion-item>
 
         <ion-item class="item-unread" *ngFor="let item of items" >

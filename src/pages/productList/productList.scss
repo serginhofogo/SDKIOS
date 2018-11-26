@@ -1,0 +1,311 @@
+page-productList {
+
+    ion-label{
+      white-space: normal !important;
+    }
+    .select-md {
+      padding: 1px 1px 1px 10px;
+    }
+    .label-md{
+      margin: 14px 2px 1px 0;
+    }
+  
+    scroll-content {
+      margin-top: 16px !important;
+    }
+    .swiper-container{
+      border-radius: 10px;
+    }
+  
+    ion-slides{
+      height: 30%;
+    }
+  
+    ion-avatar{
+      margin: 0px 0px 0px 0px !important;
+      img{
+        width:50px;
+        height: 50px;
+      }
+    }
+  
+    ion-header {
+      .toolbar-content {
+        background: url(../assets/images/white-down-arrow.png) no-repeat right 50%;
+        background-size:11px auto;
+        padding-right: 25px;
+        margin-right: 30px;
+      }
+      h3 {
+        margin:0;
+        font-size:12px;
+        padding-left:10px;
+      }
+      h2 {
+        margin:0;
+        font-size:14px;
+        padding-left:15px;
+        white-space: normal !important;
+        text-overflow:ellipsis;
+        overflow: hidden;
+      }
+    }
+    .grid {
+      padding: 0;
+    }
+    .card {
+      margin: 0 1px 15px !important;
+      width: 100% !important;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(1,1,1,.1);
+      text-align: center;
+      color:#3f3f3f;
+  
+      h3 {
+        margin: 0 0 3px;
+        font-size:14px;
+        font-family: 'montserrat-light';
+        color:#3f3f3f;
+      }
+      h4 {
+        margin: 0;
+        font-size: 18px;
+        font-family: 'montserrat-light';
+        color:#3f3f3f;
+      }
+  
+      ion-card-content {
+        padding: 15px 5px 10px !important
+      }
+    }
+  
+    ion-badge.distance {
+      position: fixed;
+      bottom: 60px;
+      background: #FFF;
+      box-shadow: 0 5px 15px rgba(0,0,0,.3);
+      border-radius:20px;
+      font-size:14px;
+      color:#727272;
+      letter-spacing: 1px;
+      padding: 5px 15px;
+      z-index: 999;
+      width: 150px;
+      left: 50%;
+      margin-left:-75px;
+    }
+  
+    ion-select {
+      display: flex;
+      max-width: 100%;
+      overflow: hidden;
+    }
+  
+    ion-item {
+      background-color:transparent !important;
+    }
+  
+    .input-wrapper{
+      display: block !important ;
+    }
+  
+    .card-background-page {
+  
+      ion-card {
+        position: relative;
+        text-align: center;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+    
+      .card-title {
+        position: absolute;
+        top: 2%;
+        font-size: 1.3em;
+        width: 100%;
+        font-weight: bold;
+        color: #fff;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        text-align: left;
+        margin-left: 3%;
+        padding-right: 4%;
+      }
+    
+      .card-subtitle {
+        font-size: 0.9em;
+        position: absolute;
+        top: 76%;
+        width: 100%;
+        color: #fff;
+        text-shadow: -1px 0 #5f5d5d, 0 1px #a2a0a0, 1px 0 #6d6c6c, 0 -1px #5f5d5d;
+        text-align: justify;
+        padding-right: 6%;
+        left: 3%;
+      }
+  
+      .card-price {
+        font-size: 1.0em;
+        position: absolute;
+        top: 15%;
+        width: 100%;
+        color: #168ae2;
+        font-weight: bolder;
+        left: 3%;
+        text-align: left;
+        text-shadow: -1px 0 white, 0 1px #cecece, 1px 0 #d4d4d4, 0 -1px darkgrey;
+      }
+    
+    }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    .segment-md {
+      .segment-button {
+        color:#FFF;
+        font-size: 14px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        //border-botom-color: transparent;
+  
+        &.egment-activated {
+          border-bottom: solid 2px #FFF;
+        }
+      }
+    }
+  
+    ion-thumbnail {
+      position: relative;
+      img {
+        //border-radius:40px;
+        overflow: hidden;
+        position: relative;
+        z-index:1;
+        padding-left: 1px !important;
+        width: 90px !important;
+        height: 90px !important;
+      }
+  
+      em {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        border-radius: 8px;
+        border: solid 3px #FFF;
+        background:#727272;
+        bottom: -3px;
+        right: 3px;
+        z-index: 2;
+  
+        &.online {
+          background:#21c055;
+        }
+      }
+    }
+    ion-item.item {
+      border-bottom: solid 1px #f1f1f1 !important;
+      border-top: none;
+      background:#fbfbfb;
+  
+      &.item-unread {
+        background:#FFF;
+      }
+  
+      .item-inner {
+        border: none !important;
+      }
+  
+      ion-label {
+        margin-top: 25px;
+        //margin-bottom: 20px;
+        text-transform: none;
+        letter-spacing: 0;
+  
+        h1 {
+          font-family: 'montserrat-light';
+          font-size: 18px;
+          font-weight: 400;
+          margin: 0;
+          color: #393939;
+          text-transform: none;
+          letter-spacing: 0;
+        }
+        h2 {
+          font-size: 14px;
+          font-weight: 400;
+          color: #4c4c4c;
+          text-transform: none;
+          letter-spacing: 0;
+          margin:3px 8px 8px;
+          margin-top:0px !important;
+        }
+        p {
+          white-space: normal !important;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          font-size: 14px;
+          color: #727272;
+          font-family: 'montserrat-light';
+          margin: 3px 8px 8px;
+        }
+      }
+  
+      .badge:not(.time) {
+        background:#ff1562;
+        width: 25px;
+        height: 25px;
+        border-radius: 15px;
+        line-height: 19px;
+        font-size:12px;
+  
+      }
+  
+      .badge.time {
+        background: none;
+        color:#aeaeae;
+        font-size:12px;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        top: 25px;
+        right: 15px;
+        font-weight: 400;
+      }
+    }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    .item-md{
+      padding-left: 0px;
+    }
+  
+    .mon{
+      font-family:arial;
+      font-size: 18px;
+      margin-left: 10px;
+    }
+  
+  
+  }
+  

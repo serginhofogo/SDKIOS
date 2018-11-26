@@ -49,12 +49,25 @@ export class ProductsService{
         return this.baseURL;
     }
 
+    getEmail(){
+        return this.user;
+    }   
+
     getBrand(brandID){
         var formatURL = this.baseURL+'brands/'+brandID;
         console.log('URL to Brand: ' + formatURL);  
         var tempBrand = this.http.get(formatURL).map(res => res.json());   
         console.log("tempBrand: " + JSON.stringify(tempBrand));
         return tempBrand;
+    }
+
+
+    getBrands(){
+        var formatURL = this.baseURL+'brands/';
+        console.log('URL to Brand: ' + formatURL);  
+        var tempBrands = this.http.get(formatURL).map(res => res.json());   
+        console.log("Brands: " + JSON.stringify(tempBrands));
+        return tempBrands;
     }
 
     loginUser(credentials){
@@ -164,7 +177,7 @@ export class ProductsService{
     }
 
     getUserList(){
-        console.log("Obteniendo Lista ...");
+        console.log("Obteniendo Lista Usuario...");
         var myAuth = this.token;
         let headers = new Headers();
         headers.append('Authorization', `Bearer ${myAuth}`);
@@ -174,7 +187,7 @@ export class ProductsService{
     }
 
     getUserListProducts(){
-        console.log("Obteniendo Lista ...");
+        console.log("Obteniendo Lista Productos...");
         var myAuth = this.token;
         let headers = new Headers();
         headers.append('Authorization', `Bearer ${myAuth}`);
@@ -182,4 +195,19 @@ export class ProductsService{
         var myList = this.http.get(formatURL,{ headers: headers}).map(res => res.json(), err =>err.json()); 
         return myList;
     }
+
+    getProductsByBrand(brandId){
+        console.log("Obteniendo Lista por marca...");
+        var formatURL = this.baseURL+'brands/brand/'+brandId;   
+        var myList = this.http.get(formatURL).map(res => res.json(), err =>err.json()); 
+        return myList;
+    }
+
+    getProductsByName(name){
+        console.log("Obteniendo Lista por nombre...");
+        var formatURL = this.baseURL+'products/name/'+name;   
+        var myList = this.http.get(formatURL).map(res => res.json(), err =>err.json()); 
+        return myList;
+    }
+
 }

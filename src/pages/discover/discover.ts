@@ -3,6 +3,8 @@ import { NavController, App } from 'ionic-angular';
 import { FilterPage } from '../filter/filter';
 import { ProductPage } from '../product/product';
 import { ProductsService } from '../../app/services/services';
+import { ProductList } from '../productList/productList';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-discover',
@@ -25,13 +27,17 @@ export class DiscoverPage {
   public toggled: boolean;
   public showSearchResults: boolean;
 
-  constructor(public nav: NavController, public app: App, private productService:ProductsService) {
+  constructor(public nav: NavController, 
+    public app: App, 
+    private productService:ProductsService) {
+
     this.toggled = false;
     this.showSearchResults = true;
     this.getBaseURL();
     this.getCategoriesList();
     this.getDefaults();
     this.liked(null);
+
   }
 
   toggleSearch() {
@@ -70,7 +76,7 @@ export class DiscoverPage {
   getCategoriesList(){
     this.productService.getCategoriesList().subscribe(response => {
       this.categoriesList = response.categories;
-      console.log("CATEGORIAS: " + JSON.stringify(this.categoriesList ));
+      //console.log("CATEGORIAS: " + JSON.stringify(this.categoriesList ));
     });
   }
 
@@ -87,6 +93,11 @@ export class DiscoverPage {
   }
 
   liked(likedItem){
+
+    var email = this.productService.getEmail();
+    if((email==null || email == "") && likedItem != null){
+      this.app.getRootNav().push(LoginPage);
+    }else{
       if(likedItem != null){
         try{
           if(likedItem.liked == null){
@@ -125,7 +136,7 @@ export class DiscoverPage {
             }else{
               this.userList.push(likedItem._id);
             }
-            console.log("Nueva Lista: " + JSON.stringify(this.userList));
+            console.log("Nueva Lista: " + JSON.stringify(this.userList) + " " + this.userList.length );
             this.productService.updateList(this.userList).subscribe(response =>{
               console.log(JSON.stringify(response));
             })
@@ -140,4 +151,15 @@ export class DiscoverPage {
         console.log("Error en lista");
       }
     }
+  }
+
+
+
+    // CATEGORIAS
+    showCategory(myCat){
+
+      console.log(JSON.stringify(myCat));
+      this.app.getRootNav().push(ProductList,{mycat:myCat});
+    }
+
   }

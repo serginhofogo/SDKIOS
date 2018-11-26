@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, App, AlertController, LoadingController} from 'ionic-angular';
 import { ProductsService } from '../../app/services/services';
 import { CreateAdModalPage } from '../create-ad-modal/create-ad-modal';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-product',
@@ -60,46 +61,53 @@ export class ProductPage {
   }
 
   public buyProduct(myProduct) {
-    console.log("MyOrder: " + JSON.stringify(myProduct));
-    var completedForm = 1;
-    if(myProduct.quantity==null || myProduct.quantity==""){
-      completedForm = 0;
-      this.showPopup("Error", "Ingrese una cantidad válida");
-    }
-    if(completedForm == 1){
-      let loading = this.loadingCtrl.create({
-        spinner: 'crescent',
-        content: 'Cargando contenido.'
-      });
-      loading.present();
+    var user = this.productService.getEmail();
+    if(user != "" && user != null){
+      console.log("MyOrder: " + JSON.stringify(myProduct));
+      var completedForm = 1;
+      if(myProduct.quantity==null || myProduct.quantity==""){
+        completedForm = 0;
+        this.showPopup("Error", "Ingrese una cantidad válida");
+      }
+      if(completedForm == 1){
+        let loading = this.loadingCtrl.create({
+          spinner: 'crescent',
+          content: 'Cargando contenido.'
+        });
+        loading.present();
 
-      this.productService.loadOrders().subscribe(response => {
-        
-        for(var i=0;i<response.orders.length;i++){
-          if(response.orders[i].estado=="open"){
-            this.order = response.orders[i];
-            console.log("Orden existente");
-          }
-        }
-
-        loading.dismiss();
-        console.log("Existing Order: " + JSON.stringify(this.order));
-
-          myProduct['product'] = this.item._id;
-          myProduct['total'] = this.item.price * myProduct.quantity;
-
-          if(myProduct.option == null){
-            myProduct['option'] = "default";
+        this.productService.loadOrders().subscribe(response => {
+          
+          for(var i=0;i<response.orders.length;i++){
+            if(response.orders[i].estado=="open"){
+              this.order = response.orders[i];
+              console.log("Orden existente");
+            }
           }
 
-        if(this.order==null){
-          console.log("SEND OBJ: " + JSON.stringify(myProduct));
-          this.createOrder(myProduct);
-        }else{
-          this.updateOrder(myProduct,this.order);
-        }
-      });
+          loading.dismiss();
+          console.log("Existing Order: " + JSON.stringify(this.order));
+
+            myProduct['product'] = this.item._id;
+            myProduct['total'] = this.item.price * myProduct.quantity;
+
+            if(myProduct.option == null){
+              myProduct['option'] = "default";
+            }
+
+          if(this.order==null){
+            console.log("SEND OBJ: " + JSON.stringify(myProduct));
+            this.createOrder(myProduct);
+          }else{
+            this.updateOrder(myProduct,this.order);
+          }
+        });
+      }
+    }else{
+      this.app.getRootNav().push(LoginPage);
     }
+
+
   }
 
 
