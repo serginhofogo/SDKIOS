@@ -36,7 +36,7 @@
 <ion-header class="bar-gradient">
 <ion-segment [(ngModel)]="home" mode="md" color="light">
   <ion-segment-button value="offers" >
-    Ofertas
+    Inicio
   </ion-segment-button>
   <ion-segment-button value="categories">
     Categorías
@@ -57,12 +57,12 @@
 
     <ion-slides>
         <ion-slide>
-          <img src="https://doofindermedia.s3.amazonaws.com/blog/2017/09/11/082814-promociones-de-ventas-ejemplos-ecommerce.jpg" />
+          <img src="{{myBaseURL}}uploads/Beasytools.png" />
         </ion-slide>
-        <ion-slide style="background-color: yellow" >
-          <h1>Promoción 2</h1>
+        <ion-slide >
+          <img src="{{myBaseURL}}uploads/Seasytools.png"/>
         </ion-slide>
-        <ion-slide style="background-color: green">
+        <ion-slide >
           <h1>Promoción 3</h1>
         </ion-slide>
       </ion-slides>
@@ -134,7 +134,7 @@
           <ion-row>
             <ion-col *ngFor="let cat of categoriesList" col-6>
                 <ion-card  >
-                    <ion-item>
+                    <ion-item style="text-align: center">
                       <h2>{{cat.name}}</h2>
                     </ion-item>
                     <img (click)="showCategory(cat)" src="{{myBaseURL}}{{cat.categoryImage}}">

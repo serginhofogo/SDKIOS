@@ -1,5 +1,9 @@
 page-discover {
 
+  .segment-md{
+    margin-top:10px;
+  }
+
   ion-label{
     white-space: normal !important;
   }
@@ -304,6 +308,8 @@ page-discover {
     font-family:arial;
     font-size: 18px;
     margin-left: 10px;
+    display:flex;
+    margin-top:0px;
   }
 
 

@@ -7,10 +7,10 @@ import { LoginPage } from '../login/login';
 
 
 @Component({
-  selector: 'page-ads',
-  templateUrl: 'ads.html'
+  selector: 'page-myUser',
+  templateUrl: 'myUser.html'
 })
-export class AdsPage {
+export class MyUser {
   items: any;
   userList:any;
   chat = "buying";

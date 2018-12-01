@@ -17,6 +17,7 @@ export class ChatsPage {
   brand:String;
   myBaseURL:String;
   namem:String = "";
+  
 
   constructor(public nav: NavController,
      public app: App,
@@ -28,6 +29,11 @@ export class ChatsPage {
     this.productService.getBrands().subscribe(response => {
       this.myBaseURL = this.productService.getBaseURL();
       this.brands = response.brands;
+      this.brands.sort(function(a, b){
+        if(a.name < b.name) { return -1; }
+        if(a.name > b.name) { return 1; }
+        return 0;
+      })
       console.log(JSON.stringify("Brands: " + this.brands.length));
     })
   }
@@ -37,7 +43,7 @@ export class ChatsPage {
     this.productService.getProductsByBrand(brandm).subscribe(response => {
       this.items = response.products;
       console.log(JSON.stringify("Brands: " + this.items.length));
-    })
+    }) 
   }
 
   public showProduct(item) {

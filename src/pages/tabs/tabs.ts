@@ -7,6 +7,9 @@ import { AdsPage } from '../ads/ads';
 import { ProfilePage } from '../profile/profile';
 import { CreateAdModalPage } from '../create-ad-modal/create-ad-modal';
 
+import { HttpClientModule } from '@angular/common/http'; 
+import { HttpModule } from '@angular/http';
+
 @Component({
   templateUrl: 'tabs.html'
 })
@@ -21,8 +24,10 @@ export class TabsPage {
   constructor(public nav: NavController, 
     public app: App, 
     public modalCtrl: ModalController) {
-
+      console.log("tabs");
   }
+
+
 
   publishAd() {
     console.log("Show Publish");
