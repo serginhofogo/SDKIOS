@@ -21,6 +21,7 @@ import { MyProductPage } from '../pages/my-product/my-product';
 import { PublishAdPage } from '../pages/publish-ad/publish-ad';
 import { CreateAdModalPage } from '../pages/create-ad-modal/create-ad-modal';
 import { ProductList } from '../pages/productList/productList';
+import { MyUser } from '../pages/myUser/myUser';
 
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -37,10 +38,10 @@ import { ProductsService} from '../app/services/services';
 
 const pages = [ LoginPage, RegisterPage, ProfilePage, TabsPage, AdsPage,
   ChatsPage, DiscoverPage, FilterPage, ProductPage, ChatPage, ChatPopover,
-  ChatBgPage, ChatBuyerPopover, MyProductPage, PublishAdPage, CreateAdModalPage, ProductList];
+  ChatBgPage, ChatBuyerPopover, MyProductPage, PublishAdPage, CreateAdModalPage, 
+  ProductList, MyUser];
 
 const nativeProviders = [ SplashScreen, StatusBar ];
-
 
 @NgModule({
   declarations: [

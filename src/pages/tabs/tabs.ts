@@ -7,6 +7,8 @@ import { AdsPage } from '../ads/ads';
 import { ProfilePage } from '../profile/profile';
 import { CreateAdModalPage } from '../create-ad-modal/create-ad-modal';
 
+import { MyUser } from '../myUser/myUser';
+
 import { HttpClientModule } from '@angular/common/http'; 
 import { HttpModule } from '@angular/http';
 
@@ -19,7 +21,7 @@ export class TabsPage {
   tab1Root: any = DiscoverPage;
   tab2Root: any = ChatsPage;
   tab3Root: any = AdsPage;
-  tab4Root: any = ProfilePage;
+  tab4Root: any = MyUser;
 
   constructor(public nav: NavController, 
     public app: App, 

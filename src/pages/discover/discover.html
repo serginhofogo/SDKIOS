@@ -1,37 +1,3 @@
-<!--
-<ion-header class="bar-gradient">
-  <ion-navbar color="gradient">
-    <div></div>
-    <ion-item>
-        <ion-label> <h5 class="mon">Seleccione:</h5></ion-label><br/>
-        <ion-select (ionChange)="changeCategory()" [(ngModel)]="category" name="category">
-            <ion-option *ngFor="let categories of categoriesList" value={{categories.code}}>
-            {{categories.name}}</ion-option>
-          </ion-select>
-    </ion-item> 
-
-    <ion-buttons end>
-      <button ion-button icon-only (click)="toggleSearch()">
-        <i class="header-icon search-icon"></i>
-      </button>
-      <button ion-button icon-only (click)="openFilter()">
-        <i class="header-icon filter-icon"></i>
-      </button>
-    </ion-buttons>
-  </ion-navbar>
-
-  <ion-searchbar *ngIf="toggled"
-    [showCancelButton]="false"
-    (ionInput)="showResults($event)"
-    (ionCancel)="clearSearch($event)"
-    (ionClear)="clearSearch($event)">
-
-  </ion-searchbar>
-</ion-header>
-
--->
-
-
 
 <ion-header class="bar-gradient">
 <ion-segment [(ngModel)]="home" mode="md" color="light">
@@ -45,109 +11,237 @@
 </ion-header>
 
 
-
-
-
-
-
-
 <ion-content padding class="card-background-page">
-    <div [ngSwitch]="home">
-      <ion-list *ngSwitchCase="'offers'">
 
-    <ion-slides>
-        <ion-slide>
-          <img src="{{myBaseURL}}uploads/Beasytools.png" />
-        </ion-slide>
-        <ion-slide >
-          <img src="{{myBaseURL}}uploads/Seasytools.png"/>
-        </ion-slide>
-        <ion-slide >
-          <h1>Promoción 3</h1>
-        </ion-slide>
-      </ion-slides>
+  
+  <div [ngSwitch]="home">
+    <ion-list *ngSwitchCase="'offers'">
+      <ion-slides pager="true" loop="true">
+          <ion-slide>
+            <img src="{{myBaseURL}}uploads/Beasytools.png" />
+          </ion-slide>
+          <ion-slide >
+            <img src="{{myBaseURL}}uploads/Seasytools.png"/>
+          </ion-slide>
+          <ion-slide >
+            <h1>Promoción 3</h1>
+          </ion-slide>
+        </ion-slides>
 
-  <div *ngIf="showSearchResults">
-    <ion-grid>
-      <ion-row>
-        <ion-col *ngFor="let item of items" col-6>
-            <ion-card  >
-                <ion-item>
-        
-                  <h2>{{item.name}}</h2>
-                  <p>Precio: USD {{item.price}}</p>
-                </ion-item>
-              
-                <img (click)="showProduct(item)" src="{{myBaseURL}}{{item.productImage[0]}}">
-              
-                <ion-card-content>
-                  <p>{{item.dimensions}}</p>
-                </ion-card-content>
-              
-                <ion-item actions>
-                    <button ion-button color="primary" clear item-end icon-start>
-                        <ion-icon name='cart'></ion-icon>
-                      </button>
-                      <button ion-button color="primary" clear item-end icon-start>
-                          <ion-icon name='star'></ion-icon>
-                        </button>
-                    
-                    <button *ngIf="item.liked == null" ion-button color="primary" (click)="liked(item)" clear item-end icon-start>
-                      <ion-icon name='heart'></ion-icon>
-                    </button>
-                    <button *ngIf="item.liked != null" ion-button color="primary" (click)="liked(item)" clear item-end icon-start>
-                      <ion-icon name='heart' color="danger"></ion-icon>
-                    </button>
-
+    <div *ngIf="showSearchResults">
+      <ion-grid>
+        <ion-row>
+          <ion-col *ngFor="let item of items" col-6>
+              <ion-card  >
+                  <ion-item>
+          
+                    <h2>{{item.name}}</h2>
+                    <p>Precio: USD {{item.price}}</p>
                   </ion-item>
-              </ion-card>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+                
+                  <img (click)="showProduct(item)" src="{{myBaseURL}}{{item.productImage[0]}}">
+                
+                  <ion-card-content>
+                    <p>{{item.dimensions}}</p>
+                  </ion-card-content>
+                
+                  <ion-item actions>
+                      <button ion-button color="primary" clear item-end icon-start>
+                          <ion-icon name='cart'></ion-icon>
+                        </button>
+                        <button ion-button color="primary" clear item-end icon-start>
+                            <ion-icon name='star'></ion-icon>
+                          </button>
+                      
+                      <button *ngIf="item.liked == null" ion-button color="primary" (click)="liked(item)" clear item-end icon-start>
+                        <ion-icon name='heart'></ion-icon>
+                      </button>
+                      <button *ngIf="item.liked != null" ion-button color="primary" (click)="liked(item)" clear item-end icon-start>
+                        <ion-icon name='heart' color="danger"></ion-icon>
+                      </button>
 
+                    </ion-item>
+                </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>    
+      </div>
 
-            
-  <!--
-    <ion-item *ngFor="let item of items"  (click)="showProduct(item)">
-        <ion-thumbnail item-left>
-          <img src="{{myBaseURL}}{{item.productImage[0]}}"  />
-          <em class="online"></em>
-        </ion-thumbnail>
-        <ion-badge item-right ><ion-icon name="cart"></ion-icon></ion-badge>
-        <ion-badge item-right class="time">Nuevo</ion-badge>
-
-        <h1>{{item.name}}</h1>
-        <h2>$ {{item.price}}</h2>
-        <p>{{item.shortDesc}}</p>
-    </ion-item>
-  -->
-
-  </div>
-
-</ion-list>
-</div>
-    
-
-<div [ngSwitch]="home">
-  <ion-list *ngSwitchCase="'categories'">
+     
       <ion-grid>
           <ion-row>
-            <ion-col *ngFor="let cat of categoriesList" col-6>
+            <ion-col *ngFor="let item of lista1" col-6>
                 <ion-card  >
-                    <ion-item style="text-align: center">
-                      <h2>{{cat.name}}</h2>
+                    <ion-item>
+            
+                      <h2>{{item.name}}</h2>
+                      <p>Precio: USD {{item.price}}</p>
                     </ion-item>
-                    <img (click)="showCategory(cat)" src="{{myBaseURL}}{{cat.categoryImage}}">
-                    <!--
+                  
+                    <img (click)="showProduct(item)" src="{{myBaseURL}}{{item.productImage[0]}}">
+                  
                     <ion-card-content>
-                      <p>{{cat.shortDesc}}</p>
+                      <p>{{item.dimensions}}</p>
                     </ion-card-content>
-                    -->
+                  
+                    <ion-item actions>
+                        <button ion-button color="primary" clear item-end icon-start>
+                            <ion-icon name='cart'></ion-icon>
+                          </button>
+                          <button ion-button color="primary" clear item-end icon-start>
+                              <ion-icon name='star'></ion-icon>
+                            </button>
+                        
+                        <button *ngIf="item.liked == null" ion-button color="primary" (click)="liked(item)" clear item-end icon-start>
+                          <ion-icon name='heart'></ion-icon>
+                        </button>
+                        <button *ngIf="item.liked != null" ion-button color="primary" (click)="liked(item)" clear item-end icon-start>
+                          <ion-icon name='heart' color="danger"></ion-icon>
+                        </button>
+  
+                      </ion-item>
                   </ion-card>
             </ion-col>
           </ion-row>
-        </ion-grid>
-  </ion-list>
-</div>
+        </ion-grid>  
+        
+        
+        <ion-slides slidesPerView="1.5" loop="true">
+            <ion-slide class="minorSlide">
+              <img src="{{myBaseURL}}uploads/aa.png" />
+            </ion-slide>
+            <ion-slide class="minorSlide">
+              <img src="{{myBaseURL}}uploads/bb.png"/>
+            </ion-slide>
+            <ion-slide class="minorSlide">
+                <img src="{{myBaseURL}}uploads/cc.png"/>
+            </ion-slide>
+          </ion-slides>
+
+      
+        <ion-grid>
+            <ion-row>
+              <ion-col *ngFor="let item of lista2" col-6>
+                  <ion-card  >
+                      <ion-item>
+              
+                        <h2>{{item.name}}</h2>
+                        <p>Precio: USD {{item.price}}</p>
+                      </ion-item>
+                    
+                      <img (click)="showProduct(item)" src="{{myBaseURL}}{{item.productImage[0]}}">
+                    
+                      <ion-card-content>
+                        <p>{{item.dimensions}}</p>
+                      </ion-card-content>
+                    
+                      <ion-item actions>
+                          <button ion-button color="primary" clear item-end icon-start>
+                              <ion-icon name='cart'></ion-icon>
+                            </button>
+                            <button ion-button color="primary" clear item-end icon-start>
+                                <ion-icon name='star'></ion-icon>
+                              </button>
+                          
+                          <button *ngIf="item.liked == null" ion-button color="primary" (click)="liked(item)" clear item-end icon-start>
+                            <ion-icon name='heart'></ion-icon>
+                          </button>
+                          <button *ngIf="item.liked != null" ion-button color="primary" (click)="liked(item)" clear item-end icon-start>
+                            <ion-icon name='heart' color="danger"></ion-icon>
+                          </button>
+    
+                        </ion-item>
+                    </ion-card>
+              </ion-col>
+            </ion-row>
+          </ion-grid>    
+
+
+          <ion-slides slidesPerView="1.5" loop="true">
+              <ion-slide class="minorSlide">
+                <img src="{{myBaseURL}}uploads/dd.png" />
+              </ion-slide>
+              <ion-slide class="minorSlide">
+                <img src="{{myBaseURL}}uploads/ee.png"/>
+              </ion-slide>
+              <ion-slide class="minorSlide">
+                  <img src="{{myBaseURL}}uploads/ff.png"/>
+              </ion-slide>
+            </ion-slides>
+
+          <ion-grid>
+              <ion-row>
+                <ion-col *ngFor="let item of lista3" col-6>
+                    <ion-card  >
+                        <ion-item>
+                
+                          <h2>{{item.name}}</h2>
+                          <p>Precio: USD {{item.price}}</p>
+                        </ion-item>
+                      
+                        <img (click)="showProduct(item)" src="{{myBaseURL}}{{item.productImage[0]}}">
+                      
+                        <ion-card-content>
+                          <p>{{item.dimensions}}</p>
+                        </ion-card-content>
+                      
+                        <ion-item actions>
+                            <button ion-button color="primary" clear item-end icon-start>
+                                <ion-icon name='cart'></ion-icon>
+                              </button>
+                              <button ion-button color="primary" clear item-end icon-start>
+                                  <ion-icon name='star'></ion-icon>
+                                </button>
+                            
+                            <button *ngIf="item.liked == null" ion-button color="primary" (click)="liked(item)" clear item-end icon-start>
+                              <ion-icon name='heart'></ion-icon>
+                            </button>
+                            <button *ngIf="item.liked != null" ion-button color="primary" (click)="liked(item)" clear item-end icon-start>
+                              <ion-icon name='heart' color="danger"></ion-icon>
+                            </button>
+      
+                          </ion-item>
+                      </ion-card>
+                </ion-col>
+              </ion-row>
+            </ion-grid>    
+
+
+
+
+            <ion-slides slidesPerView="1.7" loop="true">
+                <ion-slide class="minorSlide">
+                  <img src="{{myBaseURL}}uploads/gg.png" />
+                </ion-slide>
+                <ion-slide class="minorSlide">
+                  <img src="{{myBaseURL}}uploads/hh.png"/>
+                </ion-slide>
+                <ion-slide class="minorSlide">
+                  <img src="{{myBaseURL}}uploads/ii.png"/>
+                </ion-slide>
+              </ion-slides>
+
+
+
+    </ion-list>
+  </div>
+    
+
+  <div [ngSwitch]="home">
+    <ion-list *ngSwitchCase="'categories'">
+        <ion-grid>
+            <ion-row>
+              <ion-col *ngFor="let cat of categoriesList" col-6>
+                  <ion-card  >
+                      <ion-item style="text-align: center">
+                        <h2>{{cat.name}}</h2>
+                      </ion-item>
+                      <img (click)="showCategory(cat)" src="{{myBaseURL}}{{cat.categoryImage}}">
+                    </ion-card>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+    </ion-list>
+  </div>
 
 </ion-content>

@@ -1,58 +1,61 @@
 <ion-header class="bar-gradient">
     <ion-title style="text-align: center">
-      Productos Guardados
+      Bienvenido
     </ion-title>
-  <ion-segment [(ngModel)]="chat" mode="md" color="light">
-    <ion-segment-button value="buying" >
-      Favoritos
+  <ion-segment [(ngModel)]="profile" mode="md" color="light">
+    <ion-segment-button value="profiler" >
+      Perfil de Usuario
     </ion-segment-button>
+    <ion-segment-button value="quest" >
+        Acerca de 
+      </ion-segment-button>
   </ion-segment>
-  </ion-header>
+</ion-header>
   
-  <ion-content>
-    <div [ngSwitch]="chat">
-      <ion-list *ngSwitchCase="'buying'">
-  
-  
-        <ion-grid>
-          <ion-row>
-            <ion-col *ngFor="let item of items" col-6>
-                <ion-card  >
-                    <ion-item>
-            
-                      <h2>{{item.name}}</h2>
-                      <p>Precio: USD {{item.price}}</p>
-                    </ion-item>
-                  
-                    <img (click)="showProduct(item)" src="{{myBaseURL}}{{item.productImage[0]}}">
-                  
-                    <ion-card-content>
-                      <p>{{item.dimensions}}</p>
-                    </ion-card-content>
-                  
-                    <ion-item actions>
-                        <button ion-button color="primary" clear item-end icon-start>
-                            <ion-icon name='cart'></ion-icon>
-                          </button>
-                          <button ion-button color="primary" clear item-end icon-start>
-                              <ion-icon name='star'></ion-icon>
-                            </button>
-                        
-                        <button *ngIf="item.liked == null" ion-button color="primary" (click)="liked(item)" clear item-end icon-start>
-                          <ion-icon name='heart'></ion-icon>
-                        </button>
-                        <button *ngIf="item.liked != null" ion-button color="primary" (click)="liked(item)" clear item-end icon-start>
-                          <ion-icon name='heart' color="danger"></ion-icon>
-                        </button>
-    
-                      </ion-item>
-                  </ion-card>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-  
+
+<ion-content>
+  <div [ngSwitch]="profile">
+    <div *ngSwitchCase="'profiler'">
+      <div class="profile-top">
+        <h1>Mi Cuenta</h1>
+        <button ion-button clear class="edit-profile-btn">
+          <span class="edit-icon"></span>
+        </button>
+        <div class="bg"></div>
+        <span class="user-tn" >
+          <img  [src]="userImage ? userImage : 'assets/img/default.png'">
+        </span>
+      </div>
+
+      <h2 *ngIf="myUser != null">{{myUser.name}}</h2>
+      <h3>Bienvenido</h3>
+
+      <div class="connected">
+        <span>Contactar mediante Whatsapp:</span>
+        <i class="connect-icon whatsapp-icon"></i>
+
+      </div>
+      <div *ngIf="orders != null">
         
-      </ion-list>
+          <button *ngFor="let order of orders"  ion-button class="button-gradient" round >Items: {{order.items.length}} Estado:{{order.estado}}</button>
+        
+      </div>
     </div>
-  </ion-content>
+  </div>
+
+  <div [ngSwitch]="profile" class="quest">
+    
+    <div *ngSwitchCase="'quest'">
+      <h1>Preguntas frecuentes FAC</h1>
+      <h3>1. pregunta:</h3>
+      <p>Respuesta pregunta</p>
+      <h3>2. pregunta:</h3>
+      <p>Respuesta pregunta</p>
+    </div>
+
+    
+
+  </div>
+  
+</ion-content>
   

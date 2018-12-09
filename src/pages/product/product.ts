@@ -15,7 +15,7 @@ export class ProductPage {
   myBaseURL:String;
   brandImg:String;
   brandName:String;
- 
+  cantidad = 1;
   order:any;
 
   public showSlideView:boolean = true;
@@ -39,6 +39,17 @@ export class ProductPage {
 
   ionViewWillEnter() {
     this.showSlideView = true;
+  }
+
+  msMin(myOrder){
+    if(myOrder.quantity!= 0 && myOrder.quantity!= ""){
+      myOrder['quantity']--;
+      this.cantidad = myOrder['quantity'];
+    }
+  }
+  msPlus(myOrder){
+    myOrder['quantity']++;
+    this.cantidad = myOrder['quantity'];
   }
 
   ionViewWillLeave() {

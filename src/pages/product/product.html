@@ -45,19 +45,18 @@
         <table>
           <tr>
             <td>
-                <ion-item>
-                  <ion-label color="primary" stacked>Cantidad</ion-label>
-                  <ion-input type="number"  placeholder="" min="1" step="1" ngModel name="quantity"></ion-input>
-                </ion-item>
+              <button type="button" color="primary" (click)="msMin(myOrder.value);"><ion-icon name="remove"></ion-icon>
+              </button>
             </td>
             <td>
                 <ion-item>
-                    <ion-label>OPCIONES</ion-label>
-                    <ion-select [(ngModel)]="options" ngModel name="option">>
-                      <ion-option value="0">Negro</ion-option>
-                      <ion-option value="1">Rojo</ion-option>
-                    </ion-select>
-                  </ion-item>
+                  <ion-label color="primary" stacked>Cantidad</ion-label>
+                  <ion-input type="number"  placeholder="" min="1" step="1" ngModel name="quantity"  [(ngModel)]="cantidad"></ion-input>
+                </ion-item>
+            </td>
+            <td>
+                <button type="button" color="primary" (click)="msPlus(myOrder.value);"><ion-icon name="add"></ion-icon>
+                </button>
             </td>
           </tr>
         </table>

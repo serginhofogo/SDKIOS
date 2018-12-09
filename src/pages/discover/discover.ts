@@ -27,6 +27,10 @@ export class DiscoverPage {
   public toggled: boolean;
   public showSearchResults: boolean;
 
+  lista1:any;
+  lista2:any;
+  lista3:any;
+
   constructor(public nav: NavController, 
     public app: App, 
     private productService:ProductsService) {
@@ -38,6 +42,29 @@ export class DiscoverPage {
     this.getDefaults();
     this.liked(null);
 
+    this.getListsByName1("lista1");
+    this.getListsByName2("lista2");
+    this.getListsByName3("lista3");
+
+  }
+
+  getListsByName1(nameList){
+    this.productService.getListByName(nameList).subscribe(response => {
+      this.lista1 = response.products;
+      console.log("LISTA1: " + JSON.stringify(this.lista1) );
+    })
+  }
+  getListsByName2(nameList){
+    this.productService.getListByName(nameList).subscribe(response => {
+      this.lista2 = response.products;
+      console.log("LISTA2: " + JSON.stringify(this.lista2) );
+    })
+  }
+  getListsByName3(nameList){
+    this.productService.getListByName(nameList).subscribe(response => {
+      this.lista3 = response.products;
+      console.log("LISTA3: " + JSON.stringify(this.lista3) );
+    })
   }
 
   toggleSearch() {
@@ -64,7 +91,7 @@ export class DiscoverPage {
 
   ngOnInit(){
     console.log("inicio buscando Productos");
-    this.getProducts(this.category);
+    //this.getProducts(this.category);
   }
 
   getProducts(category){

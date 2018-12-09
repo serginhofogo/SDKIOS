@@ -4,6 +4,7 @@ import { NavController, App } from 'ionic-angular';
 import { MyProductPage } from '../my-product/my-product';
 import { ProductPage } from '../product/product';
 import { LoginPage } from '../login/login';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 
 @Component({
@@ -13,20 +14,61 @@ import { LoginPage } from '../login/login';
 export class MyUser {
   items: any;
   userList:any;
-  chat = "buying";
+  profile = "profiler";
   myBaseURL:String;
 
-  constructor(public nav: NavController, public app: App, public productService : ProductsService) {
-    this.getBaseURL();
-    this.liked(null);
+
+  myUser: any = null;
+  userImage:SafeResourceUrl;
+
+  orders: any;
+
+  constructor(public nav: NavController, 
+              public app: App, 
+              public productService : ProductsService,
+              private sanitizer: DomSanitizer) {
+
     this.getEmail();
+
+    var user = this.productService.getEmail();
+    if(user!= null && user != ""){
+    console.log("Fetch User");
+      this.getBaseURL();
+      this.getUserData();
+
+    }else{
+      console.log("Go to Login");
+      this.app.getRootNav().push(LoginPage);
+    }
+
+    this.getAllOrders();
+
+
+  }
+
+
+  getAllOrders(){
+    this.productService.getAllOrders().subscribe(response =>{
+      this.orders = response.orders;
+    })
+  }
+
+  getUserData(){
+    this.productService.getUser().subscribe(response =>{
+      this.myUser = response;
+      console.log(JSON.stringify(response));
+      var temp = this.myBaseURL + this.myUser.userImage;
+      console.log("sanitized:" +  temp);
+      this.userImage = this.sanitizer.bypassSecurityTrustResourceUrl(temp);
+    });
+  }
+
+  public goToLogin() {
+    this.app.getRootNav().push(LoginPage);
   }
 
   ionViewWillEnter(){
-    //calling an API
-    this.getBaseURL();
-    this.liked(null);
-    this.getEmail();
+ 
   }
 
   getEmail(){

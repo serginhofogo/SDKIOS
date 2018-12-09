@@ -92,6 +92,15 @@ export class ProductsService{
         return myOrders;
     }
 
+    getAllOrders(){
+        var myAuth = this.token;
+        let headers = new Headers();
+        headers.append('Authorization', `Bearer ${myAuth}`);
+        var formatURL = this.baseURL+'orders/email/'+this.user;   
+        var myOrders = this.http.get(formatURL,{ headers: headers}).map(res => res.json());   
+        return myOrders;
+    }
+
     createOrder(myOrder){
         console.log("Calling create service ");
         var myAuth = this.token;
@@ -183,6 +192,13 @@ export class ProductsService{
         headers.append('Authorization', `Bearer ${myAuth}`);
         var formatURL = this.baseURL+'lists/'+this.listId;   
         var myList = this.http.get(formatURL,{ headers: headers}).map(res => res.json(), err =>err.json()); 
+        return myList;
+    }
+
+    getListByName(nameList){
+        console.log("Obteniendo Lista por Nombre..." + nameList);
+        var formatURL = this.baseURL+'lists/email/'+nameList;   
+        var myList = this.http.get(formatURL).map(res => res.json(), err =>err.json()); 
         return myList;
     }
 

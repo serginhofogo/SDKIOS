@@ -16,17 +16,18 @@ export class AdsPage {
   chat = "buying";
   myBaseURL:String;
 
-  constructor(public nav: NavController, public app: App, public productService : ProductsService) {
+  constructor(public nav: NavController, 
+    public app: App, 
+    public productService : ProductsService) {
+      
     this.getBaseURL();
     this.liked(null);
     this.getEmail();
   }
 
   ionViewWillEnter(){
-    //calling an API
     this.getBaseURL();
     this.liked(null);
-    this.getEmail();
   }
 
   getEmail(){
