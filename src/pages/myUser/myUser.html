@@ -16,29 +16,49 @@
 <ion-content>
   <div [ngSwitch]="profile">
     <div *ngSwitchCase="'profiler'">
-      <div class="profile-top">
-        <h1>Mi Cuenta</h1>
-        <button ion-button clear class="edit-profile-btn">
-          <span class="edit-icon"></span>
-        </button>
-        <div class="bg"></div>
-        <span class="user-tn" >
-          <img  [src]="userImage ? userImage : 'assets/img/default.png'">
-        </span>
-      </div>
+      <div [ngSwitch]="logged">
+        <div *ngIf="email">
 
-      <h2 *ngIf="myUser != null">{{myUser.name}}</h2>
-      <h3>Bienvenido</h3>
+          <div class="profile-top">
+            <h1 *ngIf="myUser != null">{{myUser.name}}</h1>
+            <button ion-button clear class="edit-profile-btn">
+              <span class="edit-icon"></span>
+            </button>
+            <div class="bg"></div>
+            <span class="user-tn" >
+              <img  [src]="userImage ? userImage : 'assets/img/default.png'">
+            </span>
+          </div>
 
-      <div class="connected">
-        <span>Contactar mediante Whatsapp:</span>
-        <i class="connect-icon whatsapp-icon"></i>
+          <h3>Bienvenido</h3>
 
-      </div>
-      <div *ngIf="orders != null">
-        
-          <button *ngFor="let order of orders"  ion-button class="button-gradient" round >Items: {{order.items.length}} Estado:{{order.estado}}</button>
-        
+          <div class="connected">
+            <span>Contactar mediante Whatsapp:</span>
+            <a href="https://wa.me/593987928405?text=Saludos,%20Easytools%20soporte%20en%20linea">
+            <i href="https://wa.me/593987928405?text=Saludos,%20Easytools%20soporte%20en%20linea" class="connect-icon whatsapp-icon"></i>
+            </a>
+          </div>
+          <div *ngIf="orders != null">
+            <ion-list>
+              <ion-item *ngFor="let order of orders">
+                  <ion-thumbnail item-start>
+                    <img src="{{myBaseURL}}uploads/entrega0.png">
+                  </ion-thumbnail>
+                  <h2>{{order.items.length}} Items</h2>
+                  <p>Estado:{{order.estado}}</p>
+                  <button ion-button clear item-end>Ver Detalle</button>
+                </ion-item>
+            </ion-list>
+          </div>
+        </div>
+        <div *ngIf="email == null" style="text-align: center;">
+            <ion-slides slidesPerView="1" loop="true">
+                <ion-slide class="minorSlide">
+                  <img src="{{myBaseURL}}uploads/error0.png" />
+                </ion-slide>
+              </ion-slides>
+              <button ion-button round (click)="login()">Login</button>
+        </div>
       </div>
     </div>
   </div>

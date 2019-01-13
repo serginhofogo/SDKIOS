@@ -33,11 +33,16 @@ export class AdsPage {
   getEmail(){
     var email = this.productService.getEmail();
     if(email==null || email == ""){
+      this.chat = "error";
       this.app.getRootNav().push(LoginPage);
+    }else{
+      this.chat = "buying";
     }
   }
 
-
+  login(){
+    this.app.getRootNav().push(LoginPage);
+  }
 
   getBaseURL(){
     this.myBaseURL = this.productService.getBaseURL();

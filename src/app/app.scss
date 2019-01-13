@@ -22,22 +22,33 @@
   }
   
   body {
+
+    padding-top: constant(safe-area-inset-top);
+    padding-top: env(safe-area-inset-top);
+
     font-family: 'montserratregular', sans-serif;
+
   }
-  
+  .toolbar-footer{
+    margin-bottom: constant(safe-area-inset-bottom);
+    margin-bottom: env(safe-area-inset-bottom);
+  } 
   
   .content {
     background: #f6f6f6;
+    padding-top: constant(safe-area-inset-top);
+    padding-top: env(safe-area-inset-top);
   }
   
   .button-gradient {
     background-color: #1e5799;
-    background: -webkit-linear-gradient(45deg, #ffce00 0%,#e48c07 100%);
-    background: linear-gradient(45deg, #ffce00 0%,#e48c07 100%);
+    //background: -webkit-linear-gradient(45deg, #ffce00 0%,#e48c07 100%);
+    //background: linear-gradient(45deg, #ffce00 0%,#e48c07 100%);
+    background-image: url("https://images.vexels.com/media/users/3/76790/list/d2dbb9f5bc2c2f803d81818f49570ba9-textura-del-metal-geom-trico.jpg") !important;
     text-transform: uppercase;
   
     &.fab {
-      box-shadow: 5px 5px 10px rgba(255, 24, 90, .2);
+      box-shadow: 5px 5px 10px rgba(216, 216, 216, 0.2);
     }
   }
   
@@ -179,6 +190,9 @@
   }
   
   ion-footer{
+
+
+
     .toolbar-background {
       background: #f7f7f7;
       border-top-color: #ebebeb !important;
@@ -192,7 +206,7 @@
       font-size:14px;
       font-weight: 400;
       margin:0 auto;
-      box-shadow: 0px 5px 15px rgba(255, 24, 90, .3);
+      box-shadow: 0px 5px 15px rgba(199, 199, 199, 0.49);
     }
   }
   

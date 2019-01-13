@@ -11,9 +11,8 @@
 
 <ion-content>
   <div [ngSwitch]="chat">
+
     <ion-list *ngSwitchCase="'buying'">
-
-
       <ion-grid>
         <ion-row>
           <ion-col *ngFor="let item of items" col-6>
@@ -50,8 +49,16 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-
-      
     </ion-list>
+
+    <ion-list *ngSwitchCase="'error'" style="text-align:center;">
+        <ion-slides slidesPerView="1" loop="true">
+            <ion-slide class="minorSlide">
+              <img src="{{myBaseURL}}uploads/error0.png" />
+            </ion-slide>
+          </ion-slides>
+          <button ion-button round (click)="login()">Login</button>
+    </ion-list>
+
   </div>
 </ion-content>

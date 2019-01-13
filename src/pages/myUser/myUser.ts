@@ -16,26 +16,25 @@ export class MyUser {
   userList:any;
   profile = "profiler";
   myBaseURL:String;
-
+  logged="no";
 
   myUser: any = null;
   userImage:SafeResourceUrl;
 
   orders: any;
+  email:String = "";
 
   constructor(public nav: NavController, 
               public app: App, 
               public productService : ProductsService,
               private sanitizer: DomSanitizer) {
-
+    this.getBaseURL();
     this.getEmail();
 
     var user = this.productService.getEmail();
     if(user!= null && user != ""){
-    console.log("Fetch User");
-      this.getBaseURL();
+      console.log("Fetch User");
       this.getUserData();
-
     }else{
       console.log("Go to Login");
       this.app.getRootNav().push(LoginPage);
@@ -44,6 +43,10 @@ export class MyUser {
     this.getAllOrders();
 
 
+  }
+
+  login(){
+    this.app.getRootNav().push(LoginPage);
   }
 
 
@@ -72,9 +75,14 @@ export class MyUser {
   }
 
   getEmail(){
-    var email = this.productService.getEmail();
-    if(email==null || email == ""){
+    console.log("email0: " + this.email);
+    this.email = this.productService.getEmail();
+    console.log("email1: " + this.email);
+    if(this.email==null || this.email == ""){
+      
       this.app.getRootNav().push(LoginPage);
+    }else{
+      
     }
   }
 

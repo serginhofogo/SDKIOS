@@ -4,6 +4,7 @@ import { PublishAdPage } from '../publish-ad/publish-ad';
 import { DiscoverPage } from '../discover/discover';
 import { ProductsService } from '../../app/services/services';
 import { LoginPage } from '../login/login';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @Component({
   selector: 'page-create-ad-modal',
@@ -20,7 +21,8 @@ export class CreateAdModalPage {
     private productService:ProductsService,
     public loadingCtrl: LoadingController,
     public navParams: NavParams,
-    private alertCtrl: AlertController,) {
+    private alertCtrl: AlertController,
+    private iab: InAppBrowser) {
 
       console.log("Orders Page");
       var user = this.productService.getEmail();
@@ -41,6 +43,18 @@ export class CreateAdModalPage {
 
 
 
+  }
+
+  easyPago(){
+    const browser = this.iab.create('http://easytoolsec.com/services/uploads/WEB/Pago/examples/Checkout.html');
+
+  /*
+  browser.on('loadstop').subscribe(event => {
+    browser.insertCSS({ code: "body{color: red;" });
+  });
+
+  browser.close();
+  */
   }
 
   calculateTotal(){

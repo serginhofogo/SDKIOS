@@ -1,22 +1,25 @@
 
 <ion-header class="bar-gradient">
-<ion-segment [(ngModel)]="home" mode="md" color="light">
-  <ion-segment-button value="offers" >
-    Inicio
-  </ion-segment-button>
-  <ion-segment-button value="categories">
-    Categorías
-  </ion-segment-button>
-</ion-segment>
+    <ion-title style="text-align: center">
+        Bienvenido
+      </ion-title>
+  <ion-segment [(ngModel)]="home" mode="md" color="light">
+    <ion-segment-button value="offers" >
+      Inicio
+    </ion-segment-button>
+    <ion-segment-button value="categories">
+      Categorías
+    </ion-segment-button>
+  </ion-segment>
 </ion-header>
 
 
 <ion-content padding class="card-background-page">
 
-  
+
   <div [ngSwitch]="home">
     <ion-list *ngSwitchCase="'offers'">
-      <ion-slides pager="true" loop="true">
+      <ion-slides pager="true" loop="true" autoplay="5000" speed="500" >
           <ion-slide>
             <img src="{{myBaseURL}}uploads/Beasytools.png" />
           </ion-slide>
@@ -24,7 +27,7 @@
             <img src="{{myBaseURL}}uploads/Seasytools.png"/>
           </ion-slide>
           <ion-slide >
-            <h1>Promoción 3</h1>
+              <img src="{{myBaseURL}}uploads/unotools.png"/>
           </ion-slide>
         </ion-slides>
 
@@ -209,7 +212,7 @@
 
 
 
-            <ion-slides slidesPerView="1.7" loop="true">
+            <ion-slides autoplay="5000" speed="500" slidesPerView="1.5" loop="true">
                 <ion-slide class="minorSlide">
                   <img src="{{myBaseURL}}uploads/gg.png" />
                 </ion-slide>
@@ -219,6 +222,9 @@
                 <ion-slide class="minorSlide">
                   <img src="{{myBaseURL}}uploads/ii.png"/>
                 </ion-slide>
+                <ion-slide class="minorSlide">
+                    <img src="{{myBaseURL}}uploads/jj.png"/>
+                  </ion-slide>
               </ion-slides>
 
 

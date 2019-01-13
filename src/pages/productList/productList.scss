@@ -1,11 +1,17 @@
 page-productList {
 
+  .toolbar-md-gradient .toolbar-background-md{
+    background:  linear-gradient(5deg, #db7744 0%, #f19b12 100%) !important;
+  }
+
     ion-label{
       white-space: normal !important;
     }
+    
     .select-md {
       padding: 1px 1px 1px 10px;
     }
+
     .label-md{
       margin: 14px 2px 1px 0;
     }

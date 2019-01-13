@@ -18,7 +18,7 @@
 <ion-content>
 
     <div *ngIf="showSlideView">
-        <ion-slides pager loop="true" effect="coverflow" >
+        <ion-slides pager loop="true"  >
           <ion-slide *ngFor="let image of item.productImage" >
               <img src="{{myBaseURL}}{{image}}" imageViewer>
           </ion-slide>
@@ -60,7 +60,7 @@
             </td>
           </tr>
         </table>
-        <button type="submit">comprar</button>
+
       </form>
 
     </ion-card-header>
@@ -70,7 +70,7 @@
     </ion-card-content>
 
     <footer>
-      <button ion-button right clear>{{item.filterType}} {{item.filter}} </button>
+      <button ion-button right clear>{{item.filter}} {{item.filterType}}</button>
       <h4>Especificaciones</h4>
       <p>{{item.longDesc}}</p>
     </footer>
@@ -80,5 +80,5 @@
 </ion-content>
 
 <ion-footer class="erp">
-  <button ion-button full round class="button-gradient" (click)="buyProduct(myOrder.value);">Comprar</button>
+  <button ion-button full round class="button-gradient" (click)="buyProduct(myOrder.value);">Comprar ya </button>
 </ion-footer>

@@ -1,5 +1,9 @@
 page-login {
 
+  .toolbar-md-gradient .toolbar-background-md{
+    background:  linear-gradient(5deg, #db7744 0%, #f19b12 100%) !important;
+  }
+
   .login-content {
     overflow-x: hidden;
 
@@ -9,13 +13,13 @@ page-login {
       position: relative;
       z-index:2;
       text-align:center;
-      padding-top:60px;
+      padding-top:40px;
 
       .bg {
         background-color: #636363;
-        background: -webkit-linear-gradient(45deg, #e48c07 0%,#ffda00 100%);
-        background: linear-gradient(45deg, #e48c07 0%,#ffda00 100%);
-        box-shadow: 0 5px 15px rgba(255, 205, 24, 0.3);
+        background: -webkit-linear-gradient(45deg, #3a3a3a 0%, #3a3939 100%);
+        background: linear-gradient(45deg, #3a3a3a 0%, #3a3939 100%);
+        box-shadow: 0 5px 15px rgba(76, 76, 75, 0.3);
         position: absolute;
         bottom:20px;
         right:-20px;
@@ -28,13 +32,13 @@ page-login {
       .login-icon {
         width:112px;
         height: 112px;
-        background:#FFF;
+        //background:#FFF;
         position: absolute;
         left:50%;
         bottom:-36px;
-        border-radius:56px;
+        //border-radius:56px;
         margin-left:-56px;
-        box-shadow: 0 5px 15px rgba(255, 205, 24, 0.3);
+        box-shadow: 0 5px 15px rgba(45, 45, 45, 0.3);
         color:#e48c07;
         font-size:38px;
         text-align:center;

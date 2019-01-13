@@ -34,7 +34,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 import { Camera } from '@ionic-native/camera';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 import { ProductsService} from '../app/services/services';
+
+
 
 const pages = [ LoginPage, RegisterPage, ProfilePage, TabsPage, AdsPage,
   ChatsPage, DiscoverPage, FilterPage, ProductPage, ChatPage, ChatPopover,
@@ -62,6 +66,6 @@ const nativeProviders = [ SplashScreen, StatusBar ];
     MyApp,
     pages
   ],
-  providers: [ nativeProviders, Camera, ProductsService]
+  providers: [ nativeProviders, Camera, ProductsService, InAppBrowser]
 })
 export class AppModule {}

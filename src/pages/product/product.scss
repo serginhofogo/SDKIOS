@@ -1,5 +1,18 @@
 page-product {
 
+
+
+  .td{
+    text-align: center;
+  }
+  .toolbar-md-gradient .toolbar-background-md{
+    background:  linear-gradient(5deg, #db7744 0%, #f19b12 100%) !important;
+  }
+
+  .toolbar-title{
+    white-space: normal !important;
+  }
+
   .item-md {
     padding-left: 0px;
   }
@@ -18,10 +31,11 @@ page-product {
  .scroll-content{
   margin-top: 10px !important;
  }
+ 
 
   .slides {
     width: 100%;
-    height: auto;
+    height: 300px;
     position: fixed;
     top:50px;
     left: 0;
@@ -36,8 +50,12 @@ page-product {
       background:#FFF;
     }
   }
+  .slide-zoom{
+    width: 100% !important; 
+    height: 100% !important; 
+  }
   .card {
-    margin: 300px 25px 0;
+    margin: 350px 25px 0;
     width: auto;
     background:#f5f5f5;
     box-shadow:  0 15px 20px rgba(0,0,0,.2);
@@ -49,6 +67,7 @@ page-product {
 
     img{
       height: 100%;
+      width: 100%;
       background-color: white;
     }
     ion-card-header {
@@ -58,7 +77,7 @@ page-product {
       white-space: normal;
       h1 {
         font-family: 'montserrat-light';
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 400;
         margin:0;
         color:#393939;
@@ -70,20 +89,22 @@ page-product {
         color: #727272;;
       }
       h2 {
+        text-align: center;
         font-family: 'montserrat-light';
-        font-size:18px;
+        font-size:16px;
         font-weight:400;
         color: #3f3f3f;
-        margin:0 0 10px;
+        margin:-20px 50px 10px;
       }
       .user-tn {
-        float:left;
-        width:90px;
-        height: 80px;
-        border-radius:80px;
+        float: left;
+        width: 90px;
+        height: 90px;
+        border-radius: 80px;
         overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0,0,0,.2);
-        margin:-30px 8px 20px 0;
+        -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        margin: -30px 8px 20px -30px;
         border: solid 3px #FFF;
       }
       ion-badge {
@@ -116,7 +137,7 @@ page-product {
       letter-spacing: 1px;
       color:#727272;
       font-size:12px;
-      margin: 0 0 22px;
+      margin: -20px 10px 10px;
     }
     p {
       font-size:14px;
