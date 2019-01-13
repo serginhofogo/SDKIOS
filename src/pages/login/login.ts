@@ -9,6 +9,9 @@ import { ProductsService } from '../../app/services/services';
   templateUrl: 'login.html'
 })
 export class LoginPage {
+
+  txtype = true;
+
   createSuccess = false;
   registerCredentials = {email: '', password: ''};
   registerForm: any;
@@ -68,5 +71,16 @@ export class LoginPage {
       ]
     });
     alert.present();
+  }
+
+  show(){
+    console.log("validar: ");
+    if(this.txtype){
+      this.txtype = false;
+    }else{
+      this.txtype = true;
+    }
+    
+    
   }
 }

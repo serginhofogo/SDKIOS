@@ -5,6 +5,7 @@ import { MyProductPage } from '../my-product/my-product';
 import { ProductPage } from '../product/product';
 import { LoginPage } from '../login/login';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { AlertController } from 'ionic-angular';
 
 
 @Component({
@@ -27,7 +28,7 @@ export class MyUser {
   constructor(public nav: NavController, 
               public app: App, 
               public productService : ProductsService,
-              private sanitizer: DomSanitizer) {
+              private sanitizer: DomSanitizer,private alertCtrl: AlertController) {
     this.getBaseURL();
     this.getEmail();
 
@@ -184,6 +185,44 @@ export class MyUser {
       }catch{
         console.log("Error en lista");
       }
+    }
+
+    presentFAQ() {
+      let alert = this.alertCtrl.create({
+        title: 'Preguntas Frecuentes',
+        subTitle: '1. Métodos de pago <br/> Easytools acepta pagos de tajetas de crédito y débito, también ofrece la posibilidad de diferir tus pagos con tu tarjeta preferida.',
+        buttons: ['Aceptar']
+      });
+      alert.present();
+    }
+
+    presentTERM() {
+      let alert = this.alertCtrl.create({
+        title: 'Términos y Condiciones',
+        subTitle: 'La descarga y uso de la App atribuye la condición de Usuario de la misma (en adelante, el “Usuario”) e implica la aceptación plena, sin reservas y en su totalidad de los presentes términos y condiciones de uso de la App (en adelante, las “Condiciones Generales”). Por ello, EASYTOOLS recomienda a los Usuarios leer detenidamente las presentes Condiciones Generales antes de utilizar la App. <br/>' +
+        'Las presentes Condiciones Generales regulan junto con la Política de Privacidad el uso de la App por parte del Usuario y la relación entre este último y EASYTOOLS. Las Condiciones Generales han sido redactadas de conformidad con lo dispuesto en la normativa vigente aplicable en materia de Internet, comercio electrónico y protección de datos, entre otras.'+
+        'El acceso y descarga de la App son totalmente gratuitos salvo en lo relativo al coste de la conexión a través de la red de telecomunicaciones suministrada por el proveedor de acceso contratado por el Usuario.',
+        buttons: ['Aceptar']
+      });
+      alert.present();
+    }
+
+    presentCON() {
+      let alert = this.alertCtrl.create({
+        title: 'Contacto',
+        subTitle: 'Puede Contactarnos a los Siguientes números o enviarnos un email a contact@easytools.com',
+        buttons: ['Aceptar']
+      });
+      alert.present();
+    }
+
+    presentACE() {
+      let alert = this.alertCtrl.create({
+        title: 'Acerca de:',
+        subTitle: 'EasyTools es una empresa Ecuatoriana, establecida legalmente el año 2018.',
+        buttons: ['Aceptar']
+      });
+      alert.present();
     }
 
 }

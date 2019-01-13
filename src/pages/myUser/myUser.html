@@ -7,7 +7,7 @@
       Perfil de Usuario
     </ion-segment-button>
     <ion-segment-button value="quest" >
-        Acerca de 
+        Acerca de.
       </ion-segment-button>
   </ion-segment>
 </ion-header>
@@ -66,11 +66,10 @@
   <div [ngSwitch]="profile" class="quest">
     
     <div *ngSwitchCase="'quest'">
-      <h1>Preguntas frecuentes FAC</h1>
-      <h3>1. pregunta:</h3>
-      <p>Respuesta pregunta</p>
-      <h3>2. pregunta:</h3>
-      <p>Respuesta pregunta</p>
+        <button ion-button full (click)="presentFAQ()">Preguntas Frecuentes</button>
+        <button ion-button full (click)="presentTERM()">Términos y Condiciones</button>
+        <button ion-button full (click)="presentCON()">Contacto</button>
+        <button ion-button full (click)="presentACE()">Acerca de</button>
     </div>
 
     

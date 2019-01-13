@@ -9,7 +9,7 @@
     <h1><img src= "../../assets/easy0.svg"></h1>
     <div class="bg"></div>
     <span class="login-icon">
-        <img src= "../../assets/art3.svg">
+        <img src= "../../assets/dr.png">
     </span>
     
   </div>
@@ -30,9 +30,9 @@
         <ion-badge item-left>
           <i class="form-icon lock-icon"></i>
         </ion-badge>
-        <ion-input type="password"  name="password" required ngModel name="password"></ion-input>
+        <ion-input type="{{ txtype ? 'password' : 'text' }}" name="password" required ngModel name="password"></ion-input>
         <ion-badge item-right>
-          <i class="form-icon eye-icon"></i>
+          <i (click)="show()" class="form-icon eye-icon"></i>
         </ion-badge>
       </ion-item>
 

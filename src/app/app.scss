@@ -42,9 +42,9 @@
   
   .button-gradient {
     background-color: #1e5799;
-    //background: -webkit-linear-gradient(45deg, #ffce00 0%,#e48c07 100%);
-    //background: linear-gradient(45deg, #ffce00 0%,#e48c07 100%);
-    background-image: url("https://images.vexels.com/media/users/3/76790/list/d2dbb9f5bc2c2f803d81818f49570ba9-textura-del-metal-geom-trico.jpg") !important;
+    background: -webkit-linear-gradient(45deg, #ffce00 0%,#e48c07 100%);
+    background: linear-gradient(45deg, #ffce00 0%,#e48c07 100%);
+    //background-image: url("https://images.vexels.com/media/users/3/76790/list/d2dbb9f5bc2c2f803d81818f49570ba9-textura-del-metal-geom-trico.jpg") !important;
     text-transform: uppercase;
   
     &.fab {
